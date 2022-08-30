@@ -53,7 +53,7 @@ function onEachFeature(feature, layer) {
         texte = '<h4>'+feature.properties.person+'</h4>'+
         '<p><b>Adresse extraite</b> : ' + feature.properties.address + '<br>'+ 
         '<b>Activité</b> : ' + feature.properties.activity + '<br>'+ 
-        '<b>Annuaire</b> : ' + feature.properties.directory + '</p>'+
+        '<b>Annuaire</b> : ' + feature.properties.directory + '</br>'+
         '<b>Année de publication</b> : ' + feature.properties.year + '<br></p>'
         layer.bindPopup(texte);
     } else if (feature.properties && feature.properties.secteur) {
@@ -62,7 +62,7 @@ function onEachFeature(feature, layer) {
         if (feature.properties.rue_2) {
             texte += '<b>Seconde adresse </b> : ' + feature.properties.rue_2 + '<br>'
         }
-        texte += "<b>Période d'activité</b> : " + feature.properties.date + '<br>'
+        texte += "<b>Période d'activité</b> : " + feature.properties.date + '<br></p>'
         layer.bindPopup(texte);
     }
 };
@@ -97,6 +97,41 @@ $.getJSON(url_extract, function(data) {
     extract.addData(data);
 });
 
+//Par mot-clé
+////Photo
+var photo = L.geoJSON(null,{
+    onEachFeature: onEachFeature,
+    pointToLayer:pointToLayerExtract,
+    filter:function(feature, layer) {   
+        return feature.properties.has_photo == 1
+    }
+});
+$.getJSON(url_extract, function(data) {
+        photo.addData(data);
+});
+////Daguer
+var daguer = L.geoJSON(null,{
+    onEachFeature: onEachFeature,
+    pointToLayer:pointToLayerExtract,
+    filter:function(feature, layer) {   
+        return feature.properties.has_daguer == 1
+    }
+});
+$.getJSON(url_extract, function(data) {
+        daguer.addData(data);
+});
+////Opti
+var opti = L.geoJSON(null,{
+    onEachFeature: onEachFeature,
+    pointToLayer:pointToLayerExtract,
+    filter:function(feature, layer) {   
+        return feature.properties.has_opti == 1
+    }
+});
+$.getJSON(url_extract, function(data) {
+        opti.addData(data);
+});
+
 //Ref
 var url_ref = "./data/reference_geocoded_unique.geojson"
 
@@ -126,7 +161,7 @@ var map = L.map('map',{
     fullscreenControlOptions: {
         position: 'topleft'
     }
-}).setView([48.859972,2.347984],14);
+}).setView([48.859972,2.347984],13);
 
 timelineControl.addTo(map);
 timelineControl.addTimelines(extract);
@@ -158,31 +193,33 @@ var baseLayers = [{
 
 var overLayers = [
     {
-        active: true,
-        name: "Extract",
-        layer: extract
-    }
-    ,
-    {
         active: false,
-        name: "Reference",
+        name: "Référence (partielle)",
         layer: ref
-    }
-    /*,
-    {
-        active: true,
-        name: "Daguerréotype",
-        layer: daguer
     },
     {
-        active: true,
-        name: "Opticien",
-        layer: opti
-    }*/
+        active: false,
+        name: "Extraction - Tout",
+        layer: extract
+    },
+    {group:"Extraction - Par mot-clé",
+    layers :[
+        {
+            active:true,
+            name: "photo",
+            layer: photo,
+        },
+        {
+            active: false,
+            name: "daguer",
+            layer: daguer
+        },
+        {
+            active: false,
+            name: "opti",
+            layer: opti}
+    ]}
 ];
 
 map.addControl( new L.Control.PanelLayers(baseLayers, overLayers,
     {title:'<h3 id="panel">Photographes</h3>'}));
-
-
-/*Timeline*/
