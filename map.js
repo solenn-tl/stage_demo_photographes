@@ -28,6 +28,7 @@ var geojsonMarkerOptions = {
     fillOpacity: 1
 };
 
+
 function pointToLayer(feature,latlng) {
     //Create points
     return L.circleMarker(latlng, geojsonMarkerOptions);
@@ -37,27 +38,45 @@ function onEachExtractFeature(feature, layer) {
     // Pop-up content for directories data
     if (feature.properties && feature.properties.person) {
         texte = '<h4>'+feature.properties.person+'</h4>'+
-        '<p><b>Adresse</b> : ' + feature.properties.address + '<br>'+ 
+        '<p><b>Adresse extraite</b> : ' + feature.properties.address + '<br>'+ 
         '<b>Activité</b> : ' + feature.properties.activity + '<br>'+ 
-        '<b>Année</b> : ' + feature.properties.published + '<br>'+ 
+        '<b>Année</b> : ' + feature.properties.year + '<br>'+ 
         '<b>Annuaire</b> : ' + feature.properties.directory + '</p>'
         layer.bindPopup(texte);
     }
 };
 
+function getInterval (feature) {
+      // earthquake data only has a time, so we'll use that as a "start"
+      // and the "end" will be that + some value based on magnitude
+      // 18000000 = 30 minutes, so a quake of magnitude 5 would show on the
+      // map for 150 minutes or 2.5 hours
+      console.log(feature.properties.year +"01-01")
+      return {
+        start: feature.properties.year +"01-01",
+        end: feature.properties.year+"12-31",
+      };
+      
+    };
+
 /*Data*/
 var url_extract = "./data/par_activite_geocoded_unique.geojson"
 
-var extract = L.geoJSON(null,{
+//Extracted data
+var extract = L.timeline(null, {
+    pointToLayer:pointToLayer,
+    waitToUpdateMap: true,
     onEachFeature: onEachExtractFeature,
-    pointToLayer:pointToLayer
-});
+    getInterval: getInterval,
+    },
+  );
 
-// Get GeoJSON data et création
+  // Get GeoJSON data et création
 $.getJSON(url_extract, function(data) {
-        extract.addData(data);
+    extract.addData(data);
 });
 
+//Ref
 var url_ref = "./data/reference_geocoded_unique.geojson"
 
 var ref = L.geoJSON(null,{
@@ -70,6 +89,16 @@ $.getJSON(url_ref, function(data) {
         ref.addData(data);
 });
 
+/*Timeline Control*/
+var timelineControl;
+
+timelineControl = L.timelineSliderControl({
+    formatOutput: function (date) {
+        return new Date(date).toLocaleDateString();
+    },
+    enableKeyboardControls: true,
+});
+
 /*Map*/
 var map = L.map('map',{
     fullscreenControl: true,
@@ -78,6 +107,10 @@ var map = L.map('map',{
     }
 }).setView([48.859972,2.347984],14);
 
+timelineControl.addTo(map);
+timelineControl.addTimelines(extract);
+
+/*Layer Control*/
 
 var baseLayers = [{
     group:'Cartes et plans',
@@ -104,13 +137,13 @@ var baseLayers = [{
 
 var overLayers = [
     {
-        active: false,
+        active: true,
         name: "Extract",
         layer: extract
     }
     ,
     {
-        active: true,
+        active: false,
         name: "Reference",
         layer: ref
     }
@@ -129,3 +162,6 @@ var overLayers = [
 
 map.addControl( new L.Control.PanelLayers(baseLayers, overLayers,
     {title:'<h3 id="panel">Photographes</h3>'}));
+
+
+/*Timeline*/
