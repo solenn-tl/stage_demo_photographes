@@ -19,7 +19,7 @@ function getColor(data) {
             '#D60FCA';
 }
 
-var geojsonMarkerOptions = {
+var geojsonMarkerOptionsExtract = {
     radius:4,
     fillColor: "#0FB7D9",
     color: "#ffffff",
@@ -28,20 +28,41 @@ var geojsonMarkerOptions = {
     fillOpacity: 1
 };
 
+var geojsonMarkerOptionsRef = {
+    radius:4,
+    fillColor: "#66df6a",
+    color: "#ffffff",
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 1
+};
 
-function pointToLayer(feature,latlng) {
+function pointToLayerExtract(feature,latlng) {
     //Create points
-    return L.circleMarker(latlng, geojsonMarkerOptions);
+    return L.circleMarker(latlng, geojsonMarkerOptionsExtract);
 }
 
-function onEachExtractFeature(feature, layer) {
+function pointToLayerRef(feature,latlng) {
+    //Create points
+    return L.circleMarker(latlng, geojsonMarkerOptionsRef);
+}
+
+function onEachFeature(feature, layer) {
     // Pop-up content for directories data
     if (feature.properties && feature.properties.person) {
         texte = '<h4>'+feature.properties.person+'</h4>'+
         '<p><b>Adresse extraite</b> : ' + feature.properties.address + '<br>'+ 
         '<b>Activité</b> : ' + feature.properties.activity + '<br>'+ 
-        '<b>Année</b> : ' + feature.properties.year + '<br>'+ 
-        '<b>Annuaire</b> : ' + feature.properties.directory + '</p>'
+        '<b>Annuaire</b> : ' + feature.properties.directory + '</p>'+
+        '<b>Année de publication</b> : ' + feature.properties.year + '<br></p>'
+        layer.bindPopup(texte);
+    } else if (feature.properties && feature.properties.secteur) {
+        texte = '<h4>'+feature.properties.nom + '</h4>'+
+        '<p><b>Adresse</b> : ' + feature.properties.street + ' ' + feature.properties.number + '<br>'
+        if (feature.properties.rue_2) {
+            texte += '<b>Seconde adresse </b> : ' + feature.properties.rue_2 + '<br>'
+        }
+        texte += "<b>Période d'activité</b> : " + feature.properties.date + '<br>'
         layer.bindPopup(texte);
     }
 };
@@ -64,9 +85,9 @@ var url_extract = "./data/par_activite_geocoded_unique.geojson"
 
 //Extracted data
 var extract = L.timeline(null, {
-    pointToLayer:pointToLayer,
+    pointToLayer:pointToLayerExtract,
     waitToUpdateMap: true,
-    onEachFeature: onEachExtractFeature,
+    onEachFeature: onEachFeature,
     getInterval: getInterval,
     },
   );
@@ -80,8 +101,8 @@ $.getJSON(url_extract, function(data) {
 var url_ref = "./data/reference_geocoded_unique.geojson"
 
 var ref = L.geoJSON(null,{
-    onEachFeature: onEachExtractFeature,
-    pointToLayer:pointToLayer
+    onEachFeature: onEachFeature,
+    pointToLayer:pointToLayerRef
 });
 
 // Get GeoJSON data et création
