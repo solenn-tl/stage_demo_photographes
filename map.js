@@ -11,6 +11,16 @@ var wmsbhdv = L.tileLayer.wms('https://geohistoricaldata.org/geoserver/ows?SERVI
     layers:'paris-rasters:BHdV_PL_ATL20Ardt_1888'
     });
 
+var GeoportailFrance_plan = L.tileLayer('https://wxs.ign.fr/{apikey}/geoportail/wmts?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&STYLE={style}&TILEMATRIXSET=PM&FORMAT={format}&LAYER=GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}', {
+    attribution: '<a target="_blank" href="https://www.geoportail.gouv.fr/">Geoportail France</a>',
+    bounds: [[-75, -180], [81, 180]],
+    minZoom: 2,
+    maxZoom: 18,
+    apikey: 'choisirgeoportail',
+    format: 'image/png',
+    style: 'normal'
+});
+
 /*Functions*/
 function getColor(data) {
     return data == 'photo' ? '#C70039' :
@@ -51,7 +61,7 @@ function onEachFeature(feature, layer) {
     // Pop-up content for directories data
     if (feature.properties && feature.properties.person) {
         texte = '<h4>'+feature.properties.person+'</h4>'+
-        '<p><b>Adresse extraite</b> : ' + feature.properties.address + '<br>'+ 
+        '<p><b>Adresse (annuaire)</b> : ' + feature.properties.number + ' '+ feature.properties.street + '<br>'+ 
         '<b>Activité</b> : ' + feature.properties.activity + '<br>'+ 
         '<b>Annuaire</b> : ' + feature.properties.directory + '</br>'+
         '<b>Année de publication</b> : ' + feature.properties.year + '<br></p>'
@@ -173,19 +183,24 @@ var baseLayers = [{
     collapsed: false,
     layers: [
         {
-            active: true,
-            name: "Jacoubet 1836",
+            active: false,
+            name: "Jacoubet (1836)",
             layer: wmsJacoubet
         },
         {
-            active: false,
-            name: "Andriveau 1849",
+            active: true,
+            name: "Andriveau (1849)",
             layer: wmsAndriveau
         },
         {
             active: false,
-            name: "Atlas municipal 1888",
+            name: "Atlas municipal (1888)",
             layer: wmsbhdv
+        },
+        {
+            active:false,
+            name:"Plan IGN (2022)",
+            layer:GeoportailFrance_plan
         }
     ]
 }
