@@ -20,7 +20,7 @@ function getColor(data) {
 }
 
 var geojsonMarkerOptions = {
-    radius:3,
+    radius:4,
     fillColor: "#0FB7D9",
     color: "#ffffff",
     weight: 1,
@@ -38,7 +38,8 @@ function onEachExtractFeature(feature, layer) {
     if (feature.properties && feature.properties.person) {
         texte = '<h4>'+feature.properties.person+'</h4>'+
         '<p><b>Adresse</b> : ' + feature.properties.address + '<br>'+ 
-        '<b>Activité</b> : ' + feature.properties.published +
+        '<b>Activité</b> : ' + feature.properties.activity + '<br>'+ 
+        '<b>Année</b> : ' + feature.properties.published + '<br>'+ 
         '<b>Annuaire</b> : ' + feature.properties.directory + '</p>'
         layer.bindPopup(texte);
     }
@@ -55,6 +56,18 @@ var extract = L.geoJSON(null,{
 // Get GeoJSON data et création
 $.getJSON(url_extract, function(data) {
         extract.addData(data);
+});
+
+var url_ref = "./data/reference_geocoded_unique.geojson"
+
+var ref = L.geoJSON(null,{
+    onEachFeature: onEachExtractFeature,
+    pointToLayer:pointToLayer
+});
+
+// Get GeoJSON data et création
+$.getJSON(url_ref, function(data) {
+        ref.addData(data);
 });
 
 /*Map*/
@@ -95,12 +108,13 @@ var overLayers = [
         name: "Extract",
         layer: extract
     }
-    /*,
+    ,
     {
         active: true,
-        name: "Photographes",
-        layer: photo
-    },
+        name: "Reference",
+        layer: ref
+    }
+    /*,
     {
         active: true,
         name: "Daguerréotype",
