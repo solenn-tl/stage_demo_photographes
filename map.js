@@ -31,15 +31,16 @@ var map = L.map('map',{
 
 /*Functions*/
 
-var geojsonMarkerOptionsExtract = {
-    radius:4,
-    fillColor: "#1a2a78",
-    color: "#ffffff",
-    weight: 1,
-    opacity: 1,
-    fillOpacity: 1
-};
-
+function getColor(p,o,d) {
+    var color;
+    if (p == 1 && (d == 1 || d == 0) && (o == 1 || o == 0)) {
+        color = '#DC380C'}
+    else if (d == 1 && p == 0 && (o == 1 || o == 0)){
+        color = '#0C71DC'}
+    else if (o == 1 && p == 0 && d == 0) {
+        color = '#0CDC2F'}
+    return color;
+}
 
 var geojsonMarkerOptionsRef = {
     radius:4,
@@ -51,8 +52,14 @@ var geojsonMarkerOptionsRef = {
 };
 
 function pointToLayerExtract(feature,latlng) {
-    //Create points
-    return L.circleMarker(latlng, geojsonMarkerOptionsExtract);
+    return L.circleMarker(latlng, {
+        radius:4,
+        fillColor: getColor(feature.properties.has_photo,feature.properties.has_daguer,feature.properties.has_opti),
+        color: "#ffffff",
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 1
+    });
 }
 
 function pointToLayerRef(feature,latlng) {
@@ -271,3 +278,6 @@ slidervar.noUiSlider.on('update', function( values, handle ) {
     //and back again into the cluster group
     extract.addTo(extractgroup)
 });
+
+
+/*Legend*/

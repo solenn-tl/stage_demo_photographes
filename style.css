@@ -29,3 +29,15 @@
 .time {
     grid-area: time;
 }
+
+#photodiv{
+    background-color: #DC380C;
+}
+
+#daguerdiv{
+    background-color: #0C71DC;
+}
+
+#optidiv{
+    background-color: #0CDC2F;
+}
