@@ -1,3 +1,7 @@
+.body{
+    width: 1vw;
+}
+
 .article {
     display: grid;
     grid-template-columns: auto;

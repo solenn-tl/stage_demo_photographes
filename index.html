@@ -20,9 +20,8 @@
     <link rel="stylesheet" href="./libs/leaflet-panel-layers/src/leaflet-panel-layers.css">
     <script src="./libs/leaflet-panel-layers/src/leaflet-panel-layers.js"></script>
     <!--Search-->
-    <script src="./libs/Fuse/dist/fuse.js"></script>
-    <link href="./libs/leaflet-fusesearch/src/leaflet.fusesearch.css"/>
-    <script src="./libs/leaflet-fusesearch/src/leaflet.fusesearch.js"></script>
+    <link rel="stylesheet" href="./libs/leaflet-search/dist/leaflet-search.min.css">
+    <script src="./libs/leaflet-search/dist/leaflet-search.min.js"></script>
     <!--Style-->
     <link rel="stylesheet" href="style.css">
     <title>Photographes</title>
@@ -49,7 +48,7 @@
               <label for="opti">opti</label>
             </div>
             <p><small>Si une entrée contient plusieurs mot-clés, la couleur attribuée correspond à celle du mot-clé le plus pertinent (photo puis daguer puis opti).<br>
-            <i>A voir si c'est ma meilleur façon de représenter les choses...</i></small></p>
+            <i>A voir si c'est la meilleur façon de représenter cette propriété...</i></small></p>
           </fieldset>
         </div>
         <!--Checkbox - END-->
@@ -64,14 +63,17 @@
               <input type="number" min='1790' max='1910' id="input-number-max">
               </fieldset>
           </div>
+          <div id="searchContainer"></div> 
           <!--Time slider - END-->
       </div>
       <p>A ajouter :</p>
       <ul>
-        <li>Exemple suivi individuel</li>
+        <li>Exemple suivi individuel : slider ?</li>
         <li>Search bar : par nom, voie</li>
         <li>Compter le nombre d'entrées d'annuaires associées à l'affichage</li>
-        <li>Nettoyer geojson</li>
+        <li>Gérer les points superposés</li>
+        <li>Slider pour la référence</li>
+        <li>Lier le choix du fond de carte à la période choisie</li>
       </ul>
     </article>
   </body>

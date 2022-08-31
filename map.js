@@ -67,13 +67,29 @@ function pointToLayerRef(feature,latlng) {
     return L.circleMarker(latlng, geojsonMarkerOptionsRef);
 }
 
+function pointToLayerIndividu(feature,latlng) {
+    //Create points
+    return L.circleMarker(latlng, {
+        radius:6,
+        fillColor: "#D63FF5",
+        color: "#ffffff",
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 1
+});
+}
+
 function onEachFeature(feature, layer) {
     // Pop-up content for directories data
     if (feature.properties.unique_id) {
         texte = '<h4>'+feature.properties.person+'</h4>'+
         '<p><b>Adresse (annuaire)</b> : ' + feature.properties.number + ' '+ feature.properties.street + '<br>'+ 
-        '<b>Activité</b> : ' + feature.properties.activity + '<br>'+ 
-        '<b>Annuaire</b> : ' + feature.properties.directory + '</br>'+
+        '<b>Adresse (géocodeur)</b> : ' + feature.properties.pelias_name + '<br>'
+        if (feature.properties.activity){
+            texte += '<b>Activité</b> : ' + feature.properties.activity + '<br>'
+        };
+        texte += '<b>Annuaire</b> : ' + feature.properties.directory + '</br>'+
+        '<b>Entrée</b> : ' + feature.properties.index + '</br>'+
         '<b>Année de publication</b> : ' + feature.properties.year + '<br></p>'
         layer.bindPopup(texte);
     } else if (feature.properties.secteur) {
@@ -127,8 +143,7 @@ inputNumberMax.addEventListener('change', function(){
 /*Data*/
 var url_extract = "./data/par_activite_geocoded_unique.geojson"
 
-//Extracted data
-
+//Extracted data - Init
 var extract = L.geoJSON(null,{
     onEachFeature: onEachFeature,
     pointToLayer:pointToLayerExtract,
@@ -156,7 +171,21 @@ $.getJSON(url_ref, function(data) {
         ref.addData(data);
 });
 
-/*Layer Control*/
+//Exemple Individuel : Nadar - Tournachon
+var url_nadar = "./data/par_activite_geocoded_unique_nadar_tournachon.geojson"
+
+var nadar = L.geoJSON(null,{
+    pointToLayer:pointToLayerIndividu
+});
+
+// Get GeoJSON data et création
+$.getJSON(url_nadar, function(data) {
+        nadar.addData(data);
+});
+
+/**************************************
+ *********** Layer control ************
+ *************************************/
 
 var baseLayers = [{
     group:'Cartes et plans',
@@ -198,13 +227,27 @@ var overLayers = [
         name: "Extraction",
         layer: extractgroup,
         title:'extraction'
+    },
+    {
+        group:'Exemple par nom',
+        layers:[
+            {
+                active: false,
+                name: "Nadar / Tournachon",
+                layer: nadar,
+                title: 'nadar'
+            }
+        ]
     }
 ];
 
 map.addControl(new L.Control.PanelLayers(baseLayers, overLayers,
     {title:'<h3 id="panel">Photographes</h3>'}));
 
-/*Keywords listener*/
+/**************************************
+ ******** Keywords listeners *********
+ *************************************/
+
 var photocheck = document.getElementById('photo');
 var photobox = true;
 photocheck.addEventListener("click", function (evt) {
@@ -236,7 +279,11 @@ opticheck.addEventListener("click", function (evt) {
     console.log(optibox)
 });
 
-/*Slider listener and update*/
+
+/**************************************
+ *********** Slider update ************
+ *************************************/
+
 slidervar.noUiSlider.on('update', function( values, handle ) {
     console.log(handle);
     if (handle==0){
@@ -280,4 +327,15 @@ slidervar.noUiSlider.on('update', function( values, handle ) {
 });
 
 
-/*Legend*/
+
+/**************************************
+ *********** Search tool ************
+*************************************/
+
+// Create search control
+var controlSearch = new L.Control.Search({
+    position: "topleft",
+    layer: extractgroup,
+    propertyName:'person'
+});
+map.addControl(controlSearch);
