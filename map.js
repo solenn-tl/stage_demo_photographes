@@ -136,74 +136,6 @@ $.getJSON(url_extract, function(data) {
 var extractgroup =L.featureGroup();
 extract.addTo(extractgroup);
 
-var extract;
-
-fetch(url_extract)
-.then(function(response){ return response.json() })
-.then(function(data){
-
-  var photo = L.geoJson(data, { 
-    onEachFeature: onEachFeature,
-    pointToLayer:pointToLayerExtract,
-    filter:function(feature, layer) {   
-        return feature.properties.has_photo == 1
-    }
-    });
-
-var daguer = L.geoJson(data, { 
-    onEachFeature: onEachFeature,
-    pointToLayer:pointToLayerExtract,
-    filter:function(feature, layer) {   
-        return feature.properties.has_daguer == 1
-    }
-    });
-
-var opti = L.geoJson(data, { 
-    onEachFeature: onEachFeature,
-    pointToLayer:pointToLayerExtract,
-    filter:function(feature, layer) {   
-        return feature.properties.has_opti == 1
-    }
-    });
-
-    //extract = L.layerGroup([photo, daguer, opti]);
-  
-/*
-//Par mot-clé
-////Photo
-var photo = L.geoJSON(null,{
-    onEachFeature: onEachFeature,
-    pointToLayer:pointToLayerExtract,
-    filter:function(feature, layer) {   
-        return feature.properties.has_photo == 1
-    }
-});
-$.getJSON(url_extract, function(data) {
-        photo.addData(data);
-});
-////Daguer
-var daguer = L.geoJSON(null,{
-    onEachFeature: onEachFeature,
-    pointToLayer:pointToLayerExtract,
-    filter:function(feature, layer) {   
-        return feature.properties.has_daguer == 1
-    }
-});
-$.getJSON(url_extract, function(data) {
-        daguer.addData(data);
-});
-////Opti
-var opti = L.geoJSON(null,{
-    onEachFeature: onEachFeature,
-    pointToLayer:pointToLayerExtract,
-    filter:function(feature, layer) {   
-        return feature.properties.has_opti == 1
-    }
-});
-$.getJSON(url_extract, function(data) {
-        opti.addData(data);
-});*/
-
 //Ref
 var url_ref = "./data/reference_geocoded_unique.geojson"
 
@@ -250,53 +182,20 @@ var baseLayers = [{
 var overLayers = [
     {
         active: false,
-        name: "Référence (partielle)",
-        layer: ref
+        name: "Référence",
+        layer: ref,
+        title: 'reference'
     },
     {
         active: true,
-        name: "Extraction (complète)",
+        name: "Extraction",
         layer: extractgroup,
-        title:'all'
+        title:'extraction'
     }
-    /*,
-    {group:"Extraction (par mot-clé)",
-    layers :[
-        {
-            active:false,
-            name: "photo",
-            layer: photo,
-            title:'photo'
-        },
-        {
-            active: false,
-            name: "daguer",
-            layer: daguer,
-            title:'daguer'
-        },
-        {
-            active: false,
-            name: "opti",
-            layer: opti,
-            title:'opti'}
-    ]}*/
 ];
 
 map.addControl(new L.Control.PanelLayers(baseLayers, overLayers,
     {title:'<h3 id="panel">Photographes</h3>'}));
-
-/*
-function filterData (feature,layer) {
-    if ($('#photo').is(':checked') && $('#daguer').is(':checked') && $('#opti').is(':checked')) {
-        console.log('all')
-    } else if ($('#photo').is(':checked') && $('#daguer').is(':checked') && $( "#opti" ).prop( "checked", false )) {
-    } else if ($('#photo').is(':checked') && $( "#opti" ).prop( "checked", false ) && $( "#opti" ).prop( "checked", false )) {
-    } else if ($('#daguer').is(':checked') && $('#photo').is(':checked') && $( "#opti" ).prop( "checked", false )) {
-    } else if ($('#daguer').is(':checked') && $( "#photo" ).prop( "checked", false ) && $( "#opti" ).prop( "checked", false )) {
-    } else if ($('#opti').is(':checked') && $('#photo').is(':checked') && $( "#daguer" ).prop( "checked", false )) {
-    } else if ($('#opti').is(':checked') && $( "#photo" ).prop( "checked", false ) && $( "#daguer" ).prop( "checked", false )) {
-    }
-}*/
 
 /*Keywords listener*/
 var photocheck = document.getElementById('photo');
@@ -371,6 +270,4 @@ slidervar.noUiSlider.on('update', function( values, handle ) {
     });
     //and back again into the cluster group
     extract.addTo(extractgroup)
-});
-
 });
