@@ -30,36 +30,46 @@
   <body>
     <article>
       <div id="map"></div>
-      <p><i>Le slider fonctionne seulement pour la couche "Extraction complète".</i></p>
-      <!--Slider have been created with this tutorial :https://digital-geography.com/filter-leaflet-maps-slider/-->
-      <div id="slider" style="top: 0px; right: 1px; margin: 10px 25px;"></div>
-      <div style="margin-right: auto; margin-left: auto; width: 90%; margin-bottom: 10px; text-align: center;">
-      <input type="number" min='1790' max='1910' id="input-number-min">
-      <input type="number" min='1790' max='1910' id="input-number-max">
-
-      <p>To do : search bar ; compte nombre d'entités à la volée ; réduire nb propriétés geojson</p>  
-
-
-      <fieldset>
-        <legend>Choix des mots-clés</legend>
-    
-        <div>
-          <input type="checkbox" id="photo" name="photo"
-                 checked>
-          <label for="photo">photo</label>
+      <div class="filters">
+        <!--Checkbox - START-->
+        <div class="keywords">
+          <fieldset>
+            <legend>1# Mots-clés</legend>
+            <div>
+              <input type="checkbox" id="photo" name="photo"
+                    checked>
+              <label for="photo">photo</label>
+            </div>
+            <div>
+              <input type="checkbox" id="daguer" name="daguer" checked>
+              <label for="daguer">daguer</label>
+            </div>
+            <div>
+              <input type="checkbox" id="opti" name="opti" checked>
+              <label for="opti">opti</label>
+            </div>
+          </fieldset>
         </div>
-    
-        <div>
-          <input type="checkbox" id="daguer" name="daguer" checked>
-          <label for="daguer">daguer</label>
-        </div>
-
-        <div>
-          <input type="checkbox" id="opti" name="opti" checked>
-          <label for="opti">opti</label>
-        </div>
-    </fieldset>
-</div>
+        <!--Checkbox - END-->
+        <!--Time slider - START-->
+          <!--Slider have been created with this tutorial :https://digital-geography.com/filter-leaflet-maps-slider/-->
+          <div class="time">
+            <fieldset>
+              <legend>2# Période</legend>
+              <div id="slider" style="top: 0px; right: 1px; margin: 10px 25px;"></div>
+              <div style="margin-right: auto; margin-left: auto; width: 90%; margin-bottom: 10px; text-align: center;">
+              <input type="number" min='1790' max='1910' id="input-number-min">
+              <input type="number" min='1790' max='1910' id="input-number-max">
+              </fieldset>
+          </div>
+          <!--Time slider - END-->
+      </div>
+      <p>A ajouter</p>
+      <ul>
+        <li>Search bar : par nom, voie</li>
+        <li>Compter le nombre d'entrées d'annuaires associé à l'affichage</li>
+        <li>Nettoyer geojson</li>
+      </ul>
     </article>
   </body>
   <script src="map.js"></script>
