@@ -258,7 +258,8 @@ var overLayers = [
         name: "Extraction (complète)",
         layer: extractgroup,
         title:'all'
-    },
+    }
+    /*,
     {group:"Extraction (par mot-clé)",
     layers :[
         {
@@ -278,7 +279,7 @@ var overLayers = [
             name: "opti",
             layer: opti,
             title:'opti'}
-    ]}
+    ]}*/
 ];
 
 map.addControl(new L.Control.PanelLayers(baseLayers, overLayers,
@@ -297,10 +298,39 @@ function filterData (feature,layer) {
     }
 }*/
 
-var photobox = document.getElementById('photo').checked;
-var daguerbox = document.getElementById('daguer').checked;
-var optibox = document.getElementById('opti').checked;
+/*Keywords listener*/
+var photocheck = document.getElementById('photo');
+var photobox = true;
+photocheck.addEventListener("click", function (evt) {
+    if($("#photo").prop('checked') == true){
+        photobox = true;
+    } else {
+        photobox = false;
+    }
+    console.log(photobox)
+});
+var daguercheck = document.getElementById('daguer');
+var daguerbox = true;
+daguercheck.addEventListener("click", function (evt) {
+    if($("#daguer").prop('checked') == true){
+        daguerbox = true;
+    } else {
+        daguerbox = false;
+    }
+    console.log(daguerbox)
+});
+var opticheck = document.getElementById('opti');
+var optibox = true;
+opticheck.addEventListener("click", function (evt) {
+    if($("#opti").prop('checked') == true){
+        optibox = true;
+    } else {
+        optibox = false;
+    }
+    console.log(optibox)
+});
 
+/*Slider listener and update*/
 slidervar.noUiSlider.on('update', function( values, handle ) {
     console.log(handle);
     if (handle==0){
