@@ -67,10 +67,14 @@ function pointToLayerRef(feature,latlng) {
     return L.circleMarker(latlng, geojsonMarkerOptionsRef);
 }
 
+function getRadius(count){
+    return count
+}
+
 function pointToLayerIndividu(feature,latlng) {
     //Create points
     return L.circleMarker(latlng, {
-        radius:6,
+        radius:getRadius(feature.properties.count)*3,
         fillColor: "#D63FF5",
         color: "#ffffff",
         weight: 1,
@@ -140,6 +144,33 @@ inputNumberMax.addEventListener('change', function(){
     slidervar.noUiSlider.set([null, this.value]);
 });
 
+/*Timeslider 2 - INIT*/
+var slidervar2 = document.getElementById('slider2');
+noUiSlider.create(slidervar2, {
+    connect: true,
+    start: [ 1857, 1857 ],
+    step:1,
+    range: {
+        min: 1857,
+        max: 1908
+    },
+    format: wNumb({
+        decimals: 0
+    }),
+});
+
+document.getElementById('input-number-min-2').setAttribute("value", 1857);
+document.getElementById('input-number-max-2').setAttribute("value", 1858);
+//Event on input number
+var inputNumberMin2 = document.getElementById('input-number-min-2');
+var inputNumberMax2 = document.getElementById('input-number-max-2');
+inputNumberMin2.addEventListener('change', function(){
+    slidervar2.noUiSlider.set([this.value, null]);
+});
+inputNumberMax2.addEventListener('change', function(){
+    slidervar2.noUiSlider.set([null, this.value]);
+});
+
 /*Data*/
 var url_extract = "./data/par_activite_geocoded_unique.geojson"
 
@@ -174,13 +205,37 @@ $.getJSON(url_ref, function(data) {
 //Exemple Individuel : Nadar - Tournachon
 var url_nadar = "./data/par_activite_geocoded_unique_nadar_tournachon.geojson"
 
-var nadar = L.geoJSON(null,{
-    pointToLayer:pointToLayerIndividu
-});
+function onEachFeatureInd(feature,layer) {
+    if (feature.properties.count) {
+    texte = '<p><big>' + feature.properties.pelias_name + '</big><br>' +
+    '<small>(Adresse retournée par le géocodeur)</small><br>' +
+    'Nombre de résultats à cette adresse : ' + feature.properties.count + '<p>'}
+    if (feature.properties.count == 1) {
+        texte += '<p><b>Adresse (annuaire) : ' + feature.properties.number + ' ' + feature.properties.street + '</b><p>'
+    }
+    layer.bindPopup(texte)
+};
 
-// Get GeoJSON data et création
+// Exemple individuel #1
+
+var nadar = L.geoJSON(null,{
+    onEachFeature: onEachFeature,
+    pointToLayer:pointToLayerExtract
+});
 $.getJSON(url_nadar, function(data) {
         nadar.addData(data);
+});
+
+var nadargroup =L.featureGroup();
+nadar.addTo(nadargroup);
+
+// Exemple individuel #2 : entités localisées à la même adresse (cercles proprtionnels)
+var nadar_add = L.geoJSON(null,{
+    onEachFeature: onEachFeatureInd,
+    pointToLayer:pointToLayerIndividu
+});
+$.getJSON(url_nadar, function(data) {
+        nadar_add.addData(data);
 });
 
 /**************************************
@@ -223,20 +278,26 @@ var overLayers = [
         title: 'reference'
     },
     {
-        active: true,
+        active: false,
         name: "Extraction",
         layer: extractgroup,
         title:'extraction'
     },
     {
-        group:'Exemple par nom',
+        group:'Exemple : Nadar / Tournachon',
         layers:[
             {
-                active: false,
-                name: "Nadar / Tournachon",
+                active: true,
+                name: "Extraction",
                 layer: nadar,
                 title: 'nadar'
-            }
+            },
+            {
+                active: false,
+                name: "Adresses",
+                layer: nadar_add,
+                title: 'nadar_add'
+            },
         ]
     }
 ];
@@ -280,9 +341,9 @@ opticheck.addEventListener("click", function (evt) {
 });
 
 
-/**************************************
- *********** Slider update ************
- *************************************/
+/*****************************************
+ *********** Slider #1 update ************
+ ****************************************/
 
 slidervar.noUiSlider.on('update', function( values, handle ) {
     console.log(handle);
@@ -326,6 +387,38 @@ slidervar.noUiSlider.on('update', function( values, handle ) {
     extract.addTo(extractgroup)
 });
 
+
+/**
+ * Slider 2 : Exemple individuel (Nadar Tournachon)
+ */
+
+ slidervar2.noUiSlider.on('update', function( values, handle ) {
+    console.log(handle);
+    if (handle==0){
+        document.getElementById('input-number-min-2').value = values[0];
+    } else {
+        document.getElementById('input-number-max-2').value =  values[1];
+    }
+    rangeMin2 = document.getElementById('input-number-min-2').value;
+    rangeMax2 = document.getElementById('input-number-max-2').value;
+
+    //first let's clear the layer:
+    nadargroup.removeLayer(nadar);
+    //and repopulate it
+    nadar = new L.geoJson(null,{
+        //onEachFeature: onEachFeature,
+        filter:
+            function(feature, layer) {
+                return ((feature.properties.year <= rangeMax2) && (feature.properties.year >= rangeMin2));
+            },
+        //pointToLayer: pointToLayerExtract
+    })
+    $.getJSON(url_nadar, function(data) {
+        nadar.addData(data);
+    });
+    //and back again into the cluster group
+    nadar.addTo(nadargroup)
+});
 
 
 /**************************************

@@ -29,6 +29,7 @@
   <body>
     <article>
       <div id="map"></div>
+      <h3>Filtres - Echelle globale</h3>
       <div class="filters">
         <!--Checkbox - START-->
         <div class="keywords">
@@ -63,18 +64,25 @@
               <input type="number" min='1790' max='1910' id="input-number-max">
               </fieldset>
           </div>
-          <div id="searchContainer"></div> 
           <!--Time slider - END-->
       </div>
-      <p>A ajouter :</p>
-      <ul>
-        <li>Exemple suivi individuel : slider ?</li>
-        <li>Search bar : par nom, voie</li>
-        <li>Compter le nombre d'entrées d'annuaires associées à l'affichage</li>
-        <li>Gérer les points superposés</li>
-        <li>Slider pour la référence</li>
-        <li>Lier le choix du fond de carte à la période choisie</li>
-      </ul>
+
+      <h3>Echelle individuelle</h3>
+      <p>Exemple des entrées correspondants aux photographes de la famille Tournachon / Nadar</p>
+      <div class="filters">
+                <!--Time slider - START-->
+          <!--Slider have been created with this tutorial :https://digital-geography.com/filter-leaflet-maps-slider/-->
+          <div class="time">
+            <fieldset>
+              <legend>Période</legend>
+              <div id="slider2" style="top: 0px; right: 1px; margin: 10px 25px;"></div>
+              <div style="margin-right: auto; margin-left: auto; width: 90%; margin-bottom: 10px; text-align: center;">
+              <input type="number" min='1857' max='1908' id="input-number-min-2">
+              <input type="number" min='1857' max='1908' id="input-number-max-2">
+              </fieldset>
+          </div>
+          <!--Time slider - END-->
+      </div>
     </article>
   </body>
   <script src="map.js"></script>
