@@ -72,7 +72,7 @@ var overLayers = [
     }
     ]},
     {
-        group:'Suivi individuel',
+        group:'Suivi par nom',
         layers:[
             {
                 active: false,
@@ -92,4 +92,4 @@ var overLayers = [
 
 //Add layers control and change control title
 map.addControl(new L.Control.PanelLayers(baseLayers, overLayers,
-    {title:'<h3 id="panel">Photographes</h3>'}));
+    {title:'<h5 id="panel">Photographes</h5>'}));

@@ -23,39 +23,41 @@
     <link rel="stylesheet" href="./libs/leaflet-search/dist/leaflet-search.min.css">
     <script src="./libs/leaflet-search/dist/leaflet-search.min.js"></script>
     <!--Style-->
+    <link rel="stylesheet" href="libs/w3.css">
     <link rel="stylesheet" href="style.css">
     <title>Photographes</title>
   </head>
   <body>
     <article>
+      <div class="container">
       <div id="map"></div>
       <div id="controls">
-      <h2>Filtres</h2>
-      <h3>Echelle globale</h3>
-      <div class="filters">
-        <!--Checkbox - START-->
-        <div class="keywords">
-          <fieldset>
-            <legend>1# Mots-clés</legend>
-            <div id="photodiv">
-              <input type="checkbox" id="photo" name="photo"
-                    checked>
-              <label for="photo">photo</label>
+        <h2 id="titre-contols">Filtres</h2>
+        <div id="global">
+          <div class="keywords-1">
+            <h3>Echelle globale</h3>
+            <fieldset>
+              <legend>1# Mots-clés</legend>
+              <div id="checkbox">
+              <div id="photodiv">
+                <input type="checkbox" id="photo" name="photo" checked>
+                <label for="photo">photo</label>
+              </div>
+              <div id="daguerdiv">
+                <input type="checkbox" id="daguer" name="daguer" checked>
+                <label for="daguer">daguer</label>
+              </div>
+              <div id="optidiv">
+                <input type="checkbox" id="opti" name="opti" checked>
+                <label for="opti">opti</label>
+              </div>
             </div>
-            <div id="daguerdiv">
-              <input type="checkbox" id="daguer" name="daguer" checked>
-              <label for="daguer">daguer</label>
+            <div id="note">
+              <p><small>Si une entrée contient plusieurs mots-clés, la couleur attribuée correspond à celle du mot-clé le plus pertinent (photo puis daguer puis opti).</small></p>
             </div>
-            <div id="optidiv">
-              <input type="checkbox" id="opti" name="opti" checked>
-              <label for="opti">opti</label>
-            </div>
-            <p><small>Si une entrée contient plusieurs mots-clés, la couleur attribuée correspond à celle du mot-clé le plus pertinent (photo puis daguer puis opti).</small></p>
-          </fieldset>
-        </div>
-        <!--Checkbox - END-->
-        <!--Time slider - START-->
-          <!--Slider have been created with this tutorial :https://digital-geography.com/filter-leaflet-maps-slider/-->
+            </fieldset>
+          </div>
+          <!--Time slider - START-->
           <div class="time">
             <fieldset>
               <legend>2# Période</legend>
@@ -66,29 +68,24 @@
               </fieldset>
           </div>
           <!--Time slider - END-->
-      </div>
+        </div>
 
-
-
-
-
-
-      <h3>Suivi par nom</h3>
-      <div class="filters">
-          <!--Some informations about data - START -->
+        <div id="indi">
+           <!--Some informations about data - START -->
           <div class="keywords">
+            <h3>Suivi par nom</h3>
             <fieldset>
-            <legend>Photographes</legend>
-            <p>Exemple des entrées correspondants aux photographes de la famille Tournachon (Nadar) : <br>
-            <ul>
-              <li>Félix Tournachon (1820-1910) dit Nadar</li>
-              <li>Adrien Tournachon, frère de Félix (1825-1903) dit Nadar jeune</li>
-              <li>Paul Tournachon, fils de Félix (1856-1939) dit Paul Nadar</li>
-            </ul>
-            </p>
-          </fieldset>
+              <legend>Photographes</legend>
+              <p>Exemple des entrées correspondants aux photographes de la famille Tournachon (Nadar) : <br>
+              <ul>
+                <li>Félix Tournachon (1820-1910) dit Nadar</li>
+                <li>Adrien Tournachon, frère de Félix (1825-1903) dit Nadar jeune</li>
+                <li>Paul Tournachon, fils de Félix (1856-1939) dit Paul Nadar</li>
+              </ul>
+              </p>
+            </fieldset>
           </div>
-          <!--Some informations about data - END -->
+           <!--Some informations about data - END -->
 
           <!--Time slider - START-->
           <!--Slider have been created with this tutorial :https://digital-geography.com/filter-leaflet-maps-slider/-->
@@ -100,10 +97,12 @@
               <input type="number" min='1857' max='1908' id="input-number-max-2">
               <div id="slider2" style="top: 0px; right: 1px; margin: 10px 25px;"></div>
               </fieldset>
+              <!--Time slider - END-->
           </div>
-          <!--Time slider - END-->
+        </div>
       </div>
     </div>
+  </div>
     </article>
   </body>
   <script src="tile.js"></script>
