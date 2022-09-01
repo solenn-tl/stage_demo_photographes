@@ -170,12 +170,12 @@
      nadargroup.removeLayer(nadar);
      //and repopulate it
      nadar = new L.geoJson(null,{
-         onEachFeature: onEachFeature,
+         onEachFeature: onEachFeatureInd,
          filter:
              function(feature, layer) {
                  return ((feature.properties.year <= rangeMax2) && (feature.properties.year >= rangeMin2));
              },
-         pointToLayer: pointToLayerExtract
+         pointToLayer: pointToLayerInd
      })
      $.getJSON(url_nadar, function(data) {
          nadar.addData(data);

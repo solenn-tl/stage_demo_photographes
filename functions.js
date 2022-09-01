@@ -24,6 +24,16 @@ function getColor(p,o,d) {
     return color;
 }
 
+function getColorVerif(b) {
+    var color;
+    if (b == 'true') {
+        color = '#46d408'
+    } else if (b == 'false') {
+        color = '#d41d08'
+    }
+    return color;
+}
+
 function pointToLayerExtract(feature,latlng) {
     return L.circleMarker(latlng, {
         radius:4,
@@ -40,11 +50,22 @@ function pointToLayerRef(feature,latlng) {
     return L.circleMarker(latlng, geojsonMarkerOptionsRef);
 }
 
-function pointToLayerIndividu(feature,latlng) {
+function pointToLayerInd(feature,latlng) {
+    return L.circleMarker(latlng, {
+        radius:4,
+        fillColor: getColorVerif(feature.properties.verified),
+        color: "#ffffff",
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 1
+    });
+}
+
+function pointToLayerAdd(feature,latlng) {
     //Create points
     return L.circleMarker(latlng, {
         radius:getRadius(feature.properties.count)*3,
-        fillColor: "#D63FF5",
+        fillColor: '#952417',
         color: "#ffffff",
         weight: 1,
         opacity: 1,
@@ -89,8 +110,25 @@ function onEachFeature(feature, layer) {
     }
 };
 
-
 function onEachFeatureInd(feature,layer) {
+    if (feature.properties.unique_id) {
+        texte = '<h4>'+feature.properties.person+'</h4>'+
+        '<p><b>Adresse (annuaire)</b> : ' + feature.properties.number + ' '+ feature.properties.street + '<br>'+ 
+        '<b>Adresse (géocodeur)</b> : ' + feature.properties.pelias_name + '<br>' +
+        "<b>Nombre d'entités à cette adresse : </b>" + feature.properties.count + ' <small> (résultats du géocodeur)</small><br>'
+        if (feature.properties.activity){
+            texte += '<b>Activité</b> : ' + feature.properties.activity + '<br>'
+        };
+        texte += '<b>Annuaire</b> : ' + feature.properties.directory + '</br>'+
+        '<b>Entrée</b> : ' + feature.properties.index + '</br>'+
+        '<b>Année de publication</b> : ' + feature.properties.year + '<br></p>'
+    }
+    layer.bindPopup(texte)
+
+};
+
+
+function onEachFeatureAdd(feature,layer) {
     if (feature.properties.count) {
     texte = '<p><big>' + feature.properties.pelias_name + '</big><br>' +
     '<small>(Adresse retournée par le géocodeur)</small><br>' +

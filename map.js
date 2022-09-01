@@ -17,7 +17,10 @@ var map = L.map('map',{
 var controlSearch = new L.Control.Search({
     position: "topleft",
     layer: extractgroup, //Search on filter data (keyword and time)
-    propertyName:'person' //Search in feature.properties.person
+    propertyName:'person', //Search in feature.properties.person
+    textErr:'Aucun résultat',
+    textCancel:'Annuler',
+    textPlaceholder:'Ecrire un nom'
 });
 map.addControl(controlSearch);
 

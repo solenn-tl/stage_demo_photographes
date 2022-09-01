@@ -1,0 +1,817 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "geocoder_id": 14504,
+        "index": 592797,
+        "person": "nadar",
+        "address": "st-lazare 113",
+        "activity": "homme de lettres, artiste photographe",
+        "street": "st-lazare",
+        "number": 113,
+        "directory": "DidotBottin_1860a",
+        "year": 1860,
+        "unique_id": 2768,
+        "pelias_name": "113 rue saint lazare",
+        "has_photo": 1,
+        "has_daguer": 0,
+        "has_opti": 0,
+        "count": 3,
+        "verified": true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.326188,
+          48.875357
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geocoder_id": 25858,
+        "index": 1185893,
+        "person": "nadar",
+        "address": "anjou 51",
+        "activity": "office génér at de photographie",
+        "street": "anjou",
+        "number": 51,
+        "directory": "DidotBottin_1904a",
+        "year": 1904,
+        "unique_id": 5022,
+        "pelias_name": "51 rue d anjou",
+        "has_photo": 1,
+        "has_daguer": 0,
+        "has_opti": 0,
+        "count": 5,
+        "verified": "true"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3222,
+          48.873163
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geocoder_id": 26386,
+        "index": 1204351,
+        "person": "nadar",
+        "address": "boul. des capucines 35",
+        "activity": "homme de lettres, artiste photographe",
+        "street": "boul. des capucines",
+        "number": 35,
+        "directory": "DidotBottin_1861a",
+        "year": 1861,
+        "unique_id": 5118,
+        "pelias_name": "35 boulevard des capucines",
+        "has_photo": 1,
+        "has_daguer": 0,
+        "has_opti": 0,
+        "count": 4,
+        "verified": true
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.329778,
+          48.870088
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geocoder_id": 50973,
+        "index": 2463460,
+        "person": "nadar",
+        "address": "r. d'anjou 97",
+        "activity": "photographe et [ournitures pour la photographic",
+        "street": "r. d'anjou",
+        "number": 97,
+        "directory": "DidotBottin_1908a",
+        "year": 1908,
+        "unique_id": 10054,
+        "pelias_name": "r d'anjou",
+        "has_photo": 1,
+        "has_daguer": 0,
+        "has_opti": 0,
+        "count": 8,
+        "verified": "true"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3212,
+          48.870491
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geocoder_id": 64731,
+        "index": 3213595,
+        "person": "tournachon jeune et cie",
+        "address": "boul. des italieus 17",
+        "activity": "artistes photogra- phes",
+        "street": "boul. des italieus",
+        "number": 17,
+        "directory": "DidotBottin_1859a",
+        "year": 1859,
+        "unique_id": 12908,
+        "pelias_name": "17 boulevard des batignolles",
+        "has_photo": 1,
+        "has_daguer": 0,
+        "has_opti": 0,
+        "count": 1,
+        "verified": "false"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.336674,
+          48.871281
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geocoder_id": 73281,
+        "index": 3663776,
+        "person": "nadar",
+        "address": "r. d'anjou 51",
+        "activity": "photographe et fournitures pour la photographic",
+        "street": "r. d'anjou",
+        "number": 51,
+        "directory": "DidotBottin_1896a",
+        "year": 1896,
+        "unique_id": 14629,
+        "pelias_name": "r d'anjou",
+        "has_photo": 1,
+        "has_daguer": 0,
+        "has_opti": 0,
+        "count": 8,
+        "verified": "true"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3212,
+          48.870491
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geocoder_id": 74900,
+        "index": 3735214,
+        "person": "nadar",
+        "address": "anjou 51",
+        "activity": "photographe et fournitures pour la photographic",
+        "street": "anjou",
+        "number": 51,
+        "directory": "DidotBottin_1897a",
+        "year": 1897,
+        "unique_id": 14959,
+        "pelias_name": "51 rue d anjou",
+        "has_photo": 1,
+        "has_daguer": 0,
+        "has_opti": 0,
+        "count": 5,
+        "verified": "true"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3222,
+          48.873163
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geocoder_id": 76592,
+        "index": 3823232,
+        "person": "nadar",
+        "address": "anjou 27",
+        "activity": "photographe et fournitures pour la photographie",
+        "street": "anjou",
+        "number": 27,
+        "directory": "DidotBottin_1898a",
+        "year": 1898,
+        "unique_id": 15312,
+        "pelias_name": "27 quai d anjou",
+        "has_photo": 1,
+        "has_daguer": 0,
+        "has_opti": 0,
+        "count": 1,
+        "verified": "true"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.358079,
+          48.852002
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geocoder_id": 85021,
+        "index": 4279953,
+        "person": "nadar",
+        "address": "st-lazare 113",
+        "activity": "photographe",
+        "street": "st-lazare",
+        "number": 113,
+        "directory": "DidotBottin_1858a",
+        "year": 1858,
+        "unique_id": 16979,
+        "pelias_name": "113 rue saint lazare",
+        "has_photo": 1,
+        "has_daguer": 0,
+        "has_opti": 0,
+        "count": 3,
+        "verified": "true"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.326188,
+          48.875357
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geocoder_id": 85217,
+        "index": 4291752,
+        "person": "nadar",
+        "address": "r. d'anjou 51",
+        "activity": "photographe et fournitures pour la photographie",
+        "street": "r. d'anjou",
+        "number": 51,
+        "directory": "DidotBottin_1904a",
+        "year": 1904,
+        "unique_id": 17012,
+        "pelias_name": "r d'anjou",
+        "has_photo": 1,
+        "has_daguer": 0,
+        "has_opti": 0,
+        "count": 8,
+        "verified": "true"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3212,
+          48.870491
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geocoder_id": 85769,
+        "index": 4315050,
+        "person": "nadar",
+        "address": "boul. des capucines 35",
+        "activity": "homme de lettres, artiste photographe",
+        "street": "boul. des capucines",
+        "number": 35,
+        "directory": "DidotBottin_1862a",
+        "year": 1862,
+        "unique_id": 17120,
+        "pelias_name": "35 boulevard des capucines",
+        "has_photo": 1,
+        "has_daguer": 0,
+        "has_opti": 0,
+        "count": 4,
+        "verified": "true"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.329778,
+          48.870088
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geocoder_id": 99374,
+        "index": 5014002,
+        "person": "nadar",
+        "address": "rue d'anjou 51",
+        "activity": "nomme de tettres et photographe",
+        "street": "rue d'anjou",
+        "number": 51,
+        "directory": "DidotBottin_1887a",
+        "year": 1887,
+        "unique_id": 19760,
+        "pelias_name": "r d'anjou",
+        "has_photo": 1,
+        "has_daguer": 0,
+        "has_opti": 0,
+        "count": 8,
+        "verified": "true"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3212,
+          48.870491
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geocoder_id": 100744,
+        "index": 5094302,
+        "person": "nadar",
+        "address": "anjon 51",
+        "activity": "photographc et fournitures pour ka photographic",
+        "street": "anjon",
+        "number": 51,
+        "directory": "DidotBottin_1907c",
+        "year": 1907,
+        "unique_id": 20057,
+        "pelias_name": "51 Rue Montmartre",
+        "has_photo": 1,
+        "has_daguer": 0,
+        "has_opti": 0,
+        "count": 1,
+        "verified": "false"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.344672,
+          48.86561
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geocoder_id": 108284,
+        "index": 5524756,
+        "person": "nadar",
+        "address": "boul. des capucines 35",
+        "activity": "homme de lettres, artiste photographe",
+        "street": "boul. des capucines",
+        "number": 35,
+        "directory": "DidotBottin_1864a",
+        "year": 1864,
+        "unique_id": 21631,
+        "pelias_name": "35 boulevard des capucines",
+        "has_photo": 1,
+        "has_daguer": 0,
+        "has_opti": 0,
+        "count": 4,
+        "verified": "true"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.329778,
+          48.870088
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geocoder_id": 122199,
+        "index": 6241327,
+        "person": "tournachon, nadar jeune et cie",
+        "address": "boul. des italiens 17",
+        "activity": "arlistes photographes de s. m. l'impératrice, de s. a. i. la prin- cesse mathilde et de s. a. le prince de furstenberg",
+        "street": "boul. des italiens",
+        "number": 17,
+        "directory": "DidotBottin_1857a",
+        "year": 1857,
+        "unique_id": 24489,
+        "pelias_name": "17 boulevard des italiens",
+        "has_photo": 1,
+        "has_daguer": 0,
+        "has_opti": 0,
+        "count": 1,
+        "verified": "true"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.336674,
+          48.871281
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geocoder_id": 123805,
+        "index": 6291558,
+        "person": "tournachon jeune (adr.)",
+        "address": "aven. des champs-elysées 124",
+        "activity": "photographe",
+        "street": "aven. des champs-elysées",
+        "number": 124,
+        "directory": "DidotBottin_1864a",
+        "year": 1864,
+        "unique_id": 24758,
+        "pelias_name": "124 avenue des champs elysees",
+        "has_photo": 1,
+        "has_daguer": 0,
+        "has_opti": 0,
+        "count": 2,
+        "verified": "true"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.299916,
+          48.872036
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geocoder_id": 123838,
+        "index": 6294487,
+        "person": "nadar",
+        "address": "r. d'anjou 51",
+        "activity": "homme de lettres et photographe",
+        "street": "r. d'anjou",
+        "number": 51,
+        "directory": "DidotBottin_1893a",
+        "year": 1893,
+        "unique_id": 24769,
+        "pelias_name": "r d'anjou",
+        "has_photo": 1,
+        "has_daguer": 0,
+        "has_opti": 0,
+        "count": 8,
+        "verified": "true"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3212,
+          48.870491
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geocoder_id": 134177,
+        "index": 6849997,
+        "person": "nadar",
+        "address": "rue d'anjon 51",
+        "activity": "homme de lettres et photographe",
+        "street": "rue d'anjon",
+        "number": 51,
+        "directory": "DidotBottin_1886a",
+        "year": 1886,
+        "unique_id": 26834,
+        "pelias_name": "r andre danjon",
+        "has_photo": 1,
+        "has_daguer": 0,
+        "has_opti": 0,
+        "count": 1,
+        "verified": "false"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.384614,
+          48.885907
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geocoder_id": 134763,
+        "index": 6885026,
+        "person": "nadar",
+        "address": "r. d'anjou 8",
+        "activity": "b. photographe et fournitures pour la photographic",
+        "street": "r. d'anjou",
+        "number": 8,
+        "directory": "DidotBottin_1903a",
+        "year": 1903,
+        "unique_id": 26995,
+        "pelias_name": "r d'anjou",
+        "has_photo": 1,
+        "has_daguer": 0,
+        "has_opti": 0,
+        "count": 8,
+        "verified": "true"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3212,
+          48.870491
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geocoder_id": 136190,
+        "index": 6961892,
+        "person": "nadar",
+        "address": "all- jou-saint-honoré 51",
+        "activity": "homme de lettres et photograpud",
+        "street": "all- jou-saint-honoré",
+        "number": 51,
+        "directory": "DidotBottin_1881",
+        "year": 1881,
+        "unique_id": 27299,
+        "pelias_name": "all verte",
+        "has_photo": 1,
+        "has_daguer": 0,
+        "has_opti": 0,
+        "count": 1,
+        "verified": "false"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.370305,
+          48.859378
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geocoder_id": 137788,
+        "index": 7043782,
+        "person": "nadar",
+        "address": "anjou 51",
+        "activity": "photograph/ et fournitures pour la pholoyraphie",
+        "street": "anjou",
+        "number": 51,
+        "directory": "DidotBottin_1905a",
+        "year": 1905,
+        "unique_id": 27607,
+        "pelias_name": "51 rue d anjou",
+        "has_photo": 1,
+        "has_daguer": 0,
+        "has_opti": 0,
+        "count": 5,
+        "verified": "true"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3222,
+          48.873163
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geocoder_id": 138607,
+        "index": 7085389,
+        "person": "nadar",
+        "address": "rue d'anjou 51",
+        "activity": "homme de lettres ct photographe",
+        "street": "rue d'anjou",
+        "number": 51,
+        "directory": "DidotBottin_1892a",
+        "year": 1892,
+        "unique_id": 27787,
+        "pelias_name": "r d'anjou",
+        "has_photo": 1,
+        "has_daguer": 0,
+        "has_opti": 0,
+        "count": 8,
+        "verified": "true"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3212,
+          48.870491
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geocoder_id": 140912,
+        "index": 7212073,
+        "person": "nadar",
+        "address": "boul. des capucines 35",
+        "activity": "homme de lettres, artiste photographe",
+        "street": "boul. des capucines",
+        "number": 35,
+        "directory": "DidotBottin_1863a",
+        "year": 1863,
+        "unique_id": 28243,
+        "pelias_name": "35 boulevard des capucines",
+        "has_photo": 1,
+        "has_daguer": 0,
+        "has_opti": 0,
+        "count": 4,
+        "verified": "true"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.329778,
+          48.870088
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geocoder_id": 143829,
+        "index": 7353666,
+        "person": "tournachon jeune et cie",
+        "address": "boul. des italiens 17",
+        "activity": "artistes photogra- phes",
+        "street": "boul. des italiens",
+        "number": 17,
+        "directory": "DidotBottin_1860a",
+        "year": 1860,
+        "unique_id": 28787,
+        "pelias_name": "17 boulevard des italiens",
+        "has_photo": 1,
+        "has_daguer": 0,
+        "has_opti": 0,
+        "count": 1,
+        "verified": "true"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.336674,
+          48.871281
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geocoder_id": 158334,
+        "index": 8071860,
+        "person": "nadar",
+        "address": "anjou 51",
+        "activity": "homme de lettres et photographe",
+        "street": "anjou",
+        "number": 51,
+        "directory": "DidotBottin_1885a",
+        "year": 1885,
+        "unique_id": 31663,
+        "pelias_name": "51 rue d anjou",
+        "has_photo": 1,
+        "has_daguer": 0,
+        "has_opti": 0,
+        "count": 5,
+        "verified": "true"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3222,
+          48.873163
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geocoder_id": 170477,
+        "index": 8751332,
+        "person": "nadar",
+        "address": "st-lazare 113",
+        "activity": "homme de lettres, artiste photographe",
+        "street": "st-lazare",
+        "number": 113,
+        "directory": "DidotBottin_1859a",
+        "year": 1859,
+        "unique_id": 34181,
+        "pelias_name": "113 rue saint lazare",
+        "has_photo": 1,
+        "has_daguer": 0,
+        "has_opti": 0,
+        "count": 3,
+        "verified": "true"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.326188,
+          48.875357
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geocoder_id": 171866,
+        "index": 8827713,
+        "person": "nadar",
+        "address": "anjou 51",
+        "activity": "photograpne ct (ournitures pour la photographic",
+        "street": "anjou",
+        "number": 51,
+        "directory": "DidotBottin_1902a",
+        "year": 1902,
+        "unique_id": 34442,
+        "pelias_name": "51 rue d anjou",
+        "has_photo": 1,
+        "has_daguer": 0,
+        "has_opti": 0,
+        "count": 5,
+        "verified": "true"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3222,
+          48.873163
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geocoder_id": 182375,
+        "index": 9369096,
+        "person": "tournachon jeune (adr.)",
+        "address": "aven. des champs-elysées 124",
+        "activity": "photographe",
+        "street": "aven. des champs-elysées",
+        "number": 124,
+        "directory": "DidotBottin_1863a",
+        "year": 1863,
+        "unique_id": 36498,
+        "pelias_name": "124 avenue des champs elysees",
+        "has_photo": 1,
+        "has_daguer": 0,
+        "has_opti": 0,
+        "count": 2,
+        "verified": "true"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.299916,
+          48.872036
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "geocoder_id": 187912,
+        "index": 9685417,
+        "person": "nadar",
+        "address": "r. d'anjou 51",
+        "activity": "photographe et fournitures pour la 227.97. photographie",
+        "street": "r. d'anjou",
+        "number": 51,
+        "directory": "DidotBottin_1900a",
+        "year": 1900,
+        "unique_id": 37701,
+        "pelias_name": "r d'anjou",
+        "has_photo": 1,
+        "has_daguer": 0,
+        "has_opti": 0,
+        "count": 8,
+        "verified": "true"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.3212,
+          48.870491
+        ]
+      }
+    }
+  ]
+}

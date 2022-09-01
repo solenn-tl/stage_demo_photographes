@@ -38,13 +38,13 @@ $.getJSON(url_ref, function(data) {
 
 ////////////// Exemple Individuel : Nadar - Tournachon
 
-var url_nadar = "./data/par_activite_geocoded_unique_nadar_tournachon.geojson"
+var url_nadar = "./data/par_activite_geocoded_unique_nadar_tournachon_adresses_corrigees.geojson"
 
 // Exemple #1
 
 var nadar = L.geoJSON(null,{
     onEachFeature: onEachFeature,
-    pointToLayer:pointToLayerExtract
+    pointToLayer:pointToLayerInd
 });
 $.getJSON(url_nadar, function(data) {
         nadar.addData(data);
@@ -55,8 +55,8 @@ nadar.addTo(nadargroup);
 
 // Exemple #2 : entités localisées à la même adresse (cercles proprtionnels !!! au rayon !!!!)
 var nadar_add = L.geoJSON(null,{
-    onEachFeature: onEachFeatureInd,
-    pointToLayer:pointToLayerIndividu
+    onEachFeature: onEachFeatureAdd,
+    pointToLayer:pointToLayerAdd
 });
 $.getJSON(url_nadar, function(data) {
         nadar_add.addData(data);
