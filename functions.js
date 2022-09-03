@@ -15,11 +15,11 @@ function getRadius(count){
 
 function getColor(p,o,d) {
     var color;
-    if (p == 1 && (d == 1 || d == 0) && (o == 1 || o == 0)) {
+    if (p == 1) {
         color = '#DC380C'}
-    else if (d == 1 && p == 0 && (o == 1 || o == 0)){
+    else if (d == 1){
         color = '#0C71DC'}
-    else if (o == 1 && p == 0 && d == 0) {
+    else {
         color = '#0CDC2F'}
     return color;
 }
