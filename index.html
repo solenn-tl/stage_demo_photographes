@@ -37,7 +37,7 @@
           <div class="keywords-1">
             <h3>Echelle globale</h3>
             <fieldset>
-              <legend>1# Mots-clés</legend>
+              <legend>Mots-clés</legend>
               <div id="checkbox">
               <div id="photodiv">
                 <input type="checkbox" id="photo" name="photo" checked>
@@ -60,7 +60,7 @@
           <!--Time slider - START-->
           <div class="time">
             <fieldset>
-              <legend>2# Période</legend>
+              <legend>Période</legend>
                 <div style="margin-right: auto; margin-left: auto; width: 90%; margin-bottom: 10px; text-align: center; height:150px;">
                 <input type="number" min='1790' max='1910' id="input-number-min">
                 <input type="number" min='1790' max='1910' id="input-number-max">
@@ -91,13 +91,16 @@
           <!--Slider have been created with this tutorial :https://digital-geography.com/filter-leaflet-maps-slider/-->
           <div class="time">
             <fieldset>
+            <legend>Evaluation du géocodage</legend>
+            <div style="background-color: green;">
+              <p>Correct</p>
+            </div>
+            <div style="background-color: red">
+              <p>Incorrect</p>
+            </div>
+          </fieldset>
+            <fieldset>
               <legend>Période</legend>
-              <div style="background-color: green;">
-                <p>Géocodage correct</p>
-              </div>
-              <div style="background-color: red">
-                <p>Géocodage incorrect</p>
-              </div>
               <div style="margin-right: auto; margin-left: auto; width: 90%; margin-bottom: 10px; text-align: center; height:150px;">
               <input type="number" min='1857' max='1908' id="input-number-min-2">
               <input type="number" min='1857' max='1908' id="input-number-max-2">

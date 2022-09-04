@@ -20,10 +20,10 @@ var controlSearch = new L.Control.Search({
     propertyName:'person', //Search in feature.properties.person
     textErr:'Aucun résultat',
     textCancel:'Annuler',
-    textPlaceholder:'Ecrire un nom'
+    textPlaceholder:'Ecrire un nom',
+    hideMarkerOnCollapse:true
 });
 map.addControl(controlSearch);
-
 
 /**************************************
  *********** Layer control ************
@@ -82,13 +82,13 @@ var overLayers = [
                 name: "Nadar - Tout",
                 layer: nadargroup,
                 title: 'nadar'
-            },
+            }/*,
             {
                 active: false,
                 name: "Nadar - Adresses",
                 layer: nadar_add,
                 title: 'nadar_add'
-            },
+            },*/
         ]
     }
 ];

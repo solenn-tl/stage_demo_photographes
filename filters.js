@@ -8,8 +8,76 @@
  photocheck.addEventListener("click", function (evt) {
      if($("#photo").prop('checked') == true){
          photobox = true;
+
+         rangeMin = document.getElementById('input-number-min').value;
+         rangeMax = document.getElementById('input-number-max').value;
+     
+         //Clear the layer:
+         extractgroup.removeLayer(extract);
+         //Repopulate it with filtered features
+         extract = new L.geoJson(null,{
+             onEachFeature: onEachFeature,
+             filter:
+                 function(feature, layer) {
+                     if ((photobox == true) && (daguerbox == true) && (optibox == true)){
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && ((feature.properties.has_photo == 1) || (feature.properties.has_daguer == 1) || (feature.properties.has_opti == 1));
+                     } else if ((photobox == true) && (daguerbox == false) && (optibox == false)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && (feature.properties.has_photo == 1);
+                     } else if ((photobox == false) && (daguerbox == true) && (optibox == false)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && (feature.properties.has_daguer == 1);
+                     } else if ((photobox == false) && (daguerbox == false) && (optibox == true)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && (feature.properties.has_opti == 1);
+                     } else if ((photobox == true) && (daguerbox == false) && (optibox == true)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && ((feature.properties.has_photo == 1) || (feature.properties.has_opti == 1));
+                     } else if ((photobox == true) && (daguerbox == true) && (optibox == false)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && ((feature.properties.has_photo == 1) || (feature.properties.has_daguer == 1));
+                     } else if ((photobox == false) && (daguerbox == true) && (optibox == true)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && ((feature.properties.has_opti == 1) || (feature.properties.has_daguer == 1));
+                     }
+                 },
+             pointToLayer: pointToLayerExtract
+         })
+         $.getJSON(url_extract, function(data) {
+             extract.addData(data);
+         });
+         //and back again into the cluster group
+         extract.addTo(extractgroup)
      } else {
          photobox = false;
+
+         rangeMin = document.getElementById('input-number-min').value;
+         rangeMax = document.getElementById('input-number-max').value;
+     
+         //Clear the layer:
+         extractgroup.removeLayer(extract);
+         //Repopulate it with filtered features
+         extract = new L.geoJson(null,{
+             onEachFeature: onEachFeature,
+             filter:
+                 function(feature, layer) {
+                     if ((photobox == true) && (daguerbox == true) && (optibox == true)){
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && ((feature.properties.has_photo == 1) || (feature.properties.has_daguer == 1) || (feature.properties.has_opti == 1));
+                     } else if ((photobox == true) && (daguerbox == false) && (optibox == false)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && (feature.properties.has_photo == 1);
+                     } else if ((photobox == false) && (daguerbox == true) && (optibox == false)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && (feature.properties.has_daguer == 1);
+                     } else if ((photobox == false) && (daguerbox == false) && (optibox == true)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && (feature.properties.has_opti == 1);
+                     } else if ((photobox == true) && (daguerbox == false) && (optibox == true)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && ((feature.properties.has_photo == 1) || (feature.properties.has_opti == 1));
+                     } else if ((photobox == true) && (daguerbox == true) && (optibox == false)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && ((feature.properties.has_photo == 1) || (feature.properties.has_daguer == 1));
+                     } else if ((photobox == false) && (daguerbox == true) && (optibox == true)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && ((feature.properties.has_opti == 1) || (feature.properties.has_daguer == 1));
+                     }
+                 },
+             pointToLayer: pointToLayerExtract
+         })
+         $.getJSON(url_extract, function(data) {
+             extract.addData(data);
+         });
+         //and back again into the cluster group
+         extract.addTo(extractgroup)
      }
  });
  
@@ -18,8 +86,76 @@
  daguercheck.addEventListener("click", function (evt) {
      if($("#daguer").prop('checked') == true){
          daguerbox = true;
+
+         rangeMin = document.getElementById('input-number-min').value;
+         rangeMax = document.getElementById('input-number-max').value;
+     
+         //Clear the layer:
+         extractgroup.removeLayer(extract);
+         //Repopulate it with filtered features
+         extract = new L.geoJson(null,{
+             onEachFeature: onEachFeature,
+             filter:
+                 function(feature, layer) {
+                     if ((photobox == true) && (daguerbox == true) && (optibox == true)){
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && ((feature.properties.has_photo == 1) || (feature.properties.has_daguer == 1) || (feature.properties.has_opti == 1));
+                     } else if ((photobox == true) && (daguerbox == false) && (optibox == false)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && (feature.properties.has_photo == 1);
+                     } else if ((photobox == false) && (daguerbox == true) && (optibox == false)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && (feature.properties.has_daguer == 1);
+                     } else if ((photobox == false) && (daguerbox == false) && (optibox == true)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && (feature.properties.has_opti == 1);
+                     } else if ((photobox == true) && (daguerbox == false) && (optibox == true)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && ((feature.properties.has_photo == 1) || (feature.properties.has_opti == 1));
+                     } else if ((photobox == true) && (daguerbox == true) && (optibox == false)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && ((feature.properties.has_photo == 1) || (feature.properties.has_daguer == 1));
+                     } else if ((photobox == false) && (daguerbox == true) && (optibox == true)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && ((feature.properties.has_opti == 1) || (feature.properties.has_daguer == 1));
+                     }
+                 },
+             pointToLayer: pointToLayerExtract
+         })
+         $.getJSON(url_extract, function(data) {
+             extract.addData(data);
+         });
+         //and back again into the cluster group
+         extract.addTo(extractgroup)
      } else {
          daguerbox = false;
+
+         rangeMin = document.getElementById('input-number-min').value;
+         rangeMax = document.getElementById('input-number-max').value;
+     
+         //Clear the layer:
+         extractgroup.removeLayer(extract);
+         //Repopulate it with filtered features
+         extract = new L.geoJson(null,{
+             onEachFeature: onEachFeature,
+             filter:
+                 function(feature, layer) {
+                     if ((photobox == true) && (daguerbox == true) && (optibox == true)){
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && ((feature.properties.has_photo == 1) || (feature.properties.has_daguer == 1) || (feature.properties.has_opti == 1));
+                     } else if ((photobox == true) && (daguerbox == false) && (optibox == false)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && (feature.properties.has_photo == 1);
+                     } else if ((photobox == false) && (daguerbox == true) && (optibox == false)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && (feature.properties.has_daguer == 1);
+                     } else if ((photobox == false) && (daguerbox == false) && (optibox == true)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && (feature.properties.has_opti == 1);
+                     } else if ((photobox == true) && (daguerbox == false) && (optibox == true)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && ((feature.properties.has_photo == 1) || (feature.properties.has_opti == 1));
+                     } else if ((photobox == true) && (daguerbox == true) && (optibox == false)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && ((feature.properties.has_photo == 1) || (feature.properties.has_daguer == 1));
+                     } else if ((photobox == false) && (daguerbox == true) && (optibox == true)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && ((feature.properties.has_opti == 1) || (feature.properties.has_daguer == 1));
+                     }
+                 },
+             pointToLayer: pointToLayerExtract
+         })
+         $.getJSON(url_extract, function(data) {
+             extract.addData(data);
+         });
+         //and back again into the cluster group
+         extract.addTo(extractgroup)
      }
  });
  
@@ -28,8 +164,76 @@
  opticheck.addEventListener("click", function (evt) {
      if($("#opti").prop('checked') == true){
          optibox = true;
+
+         rangeMin = document.getElementById('input-number-min').value;
+         rangeMax = document.getElementById('input-number-max').value;
+     
+         //Clear the layer:
+         extractgroup.removeLayer(extract);
+         //Repopulate it with filtered features
+         extract = new L.geoJson(null,{
+             onEachFeature: onEachFeature,
+             filter:
+                 function(feature, layer) {
+                     if ((photobox == true) && (daguerbox == true) && (optibox == true)){
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && ((feature.properties.has_photo == 1) || (feature.properties.has_daguer == 1) || (feature.properties.has_opti == 1));
+                     } else if ((photobox == true) && (daguerbox == false) && (optibox == false)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && (feature.properties.has_photo == 1);
+                     } else if ((photobox == false) && (daguerbox == true) && (optibox == false)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && (feature.properties.has_daguer == 1);
+                     } else if ((photobox == false) && (daguerbox == false) && (optibox == true)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && (feature.properties.has_opti == 1);
+                     } else if ((photobox == true) && (daguerbox == false) && (optibox == true)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && ((feature.properties.has_photo == 1) || (feature.properties.has_opti == 1));
+                     } else if ((photobox == true) && (daguerbox == true) && (optibox == false)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && ((feature.properties.has_photo == 1) || (feature.properties.has_daguer == 1));
+                     } else if ((photobox == false) && (daguerbox == true) && (optibox == true)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && ((feature.properties.has_opti == 1) || (feature.properties.has_daguer == 1));
+                     }
+                 },
+             pointToLayer: pointToLayerExtract
+         })
+         $.getJSON(url_extract, function(data) {
+             extract.addData(data);
+         });
+         //and back again into the cluster group
+         extract.addTo(extractgroup)
      } else {
          optibox = false;
+
+         rangeMin = document.getElementById('input-number-min').value;
+         rangeMax = document.getElementById('input-number-max').value;
+     
+         //Clear the layer:
+         extractgroup.removeLayer(extract);
+         //Repopulate it with filtered features
+         extract = new L.geoJson(null,{
+             onEachFeature: onEachFeature,
+             filter:
+                 function(feature, layer) {
+                     if ((photobox == true) && (daguerbox == true) && (optibox == true)){
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && ((feature.properties.has_photo == 1) || (feature.properties.has_daguer == 1) || (feature.properties.has_opti == 1));
+                     } else if ((photobox == true) && (daguerbox == false) && (optibox == false)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && (feature.properties.has_photo == 1);
+                     } else if ((photobox == false) && (daguerbox == true) && (optibox == false)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && (feature.properties.has_daguer == 1);
+                     } else if ((photobox == false) && (daguerbox == false) && (optibox == true)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && (feature.properties.has_opti == 1);
+                     } else if ((photobox == true) && (daguerbox == false) && (optibox == true)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && ((feature.properties.has_photo == 1) || (feature.properties.has_opti == 1));
+                     } else if ((photobox == true) && (daguerbox == true) && (optibox == false)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && ((feature.properties.has_photo == 1) || (feature.properties.has_daguer == 1));
+                     } else if ((photobox == false) && (daguerbox == true) && (optibox == true)) {
+                         return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && ((feature.properties.has_opti == 1) || (feature.properties.has_daguer == 1));
+                     }
+                 },
+             pointToLayer: pointToLayerExtract
+         })
+         $.getJSON(url_extract, function(data) {
+             extract.addData(data);
+         });
+         //and back again into the cluster group
+         extract.addTo(extractgroup)
      }
  });
  
