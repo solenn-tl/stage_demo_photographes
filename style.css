@@ -40,6 +40,8 @@
     grid-area: global;
   }
 
+#num-features{}
+
   #indi {
     grid-template-areas:
       "keywords"

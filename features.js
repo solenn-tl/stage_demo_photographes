@@ -52,12 +52,3 @@ $.getJSON(url_nadar, function(data) {
 
 var nadargroup =L.featureGroup();
 nadar.addTo(nadargroup);
-
-// Exemple #2 : entités localisées à la même adresse (cercles proprtionnels !!! au rayon !!!!)
-var nadar_add = L.geoJSON(null,{
-    onEachFeature: onEachFeatureAdd,
-    pointToLayer:pointToLayerAdd
-});
-$.getJSON(url_nadar, function(data) {
-        nadar_add.addData(data);
-});

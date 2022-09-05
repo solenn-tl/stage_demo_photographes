@@ -1,30 +1,19 @@
-/*Icons*/
-var geojsonMarkerOptionsRef = {
-    radius:4,
-    fillColor: "#DA8513",
-    color: "#ffffff",
-    weight: 1,
-    opacity: 1,
-    fillOpacity: 1
-};
-
-
-function getRadius(count){
-    return count
-}
+/*Functions*/
 
 function getColor(p,o,d) {
+    //Get color of marker in layer 'extraction' regarding the keywords in the activity field
     var color;
-    if (p == 1) {
+    if ((p == 1 && d == 1 && o == 1) || (p == 1 && d == 0 && o == 1) || (p == 1 && d == 1 && o == 0) || (p == 1 && d == 0 && o == 0)){ //p
         color = '#DC380C'}
-    else if (d == 1){
+    else if ((p == 0 && d == 1 && o == 1) || (p == 0 && d == 1 && o == 0)){ //d
         color = '#0C71DC'}
-    else {
+    else if (p == 0 && d == 0 && o == 1){ //o
         color = '#0CDC2F'}
     return color;
 }
 
 function getColorVerif(b) {
+    //Get color marker of the exemples layers : green if geocoding is right, red if it is false
     var color;
     if (b == 'true') {
         color = '#46d408'
@@ -35,6 +24,7 @@ function getColorVerif(b) {
 }
 
 function pointToLayerExtract(feature,latlng) {
+    //Create markers of the 'extractions' layer
     return L.circleMarker(latlng, {
         radius:4,
         fillColor: getColor(feature.properties.has_photo,feature.properties.has_daguer,feature.properties.has_opti),
@@ -45,12 +35,23 @@ function pointToLayerExtract(feature,latlng) {
     });
 }
 
+var geojsonMarkerOptionsRef = {
+    //Markers of the reference layer
+    radius:4,
+    fillColor: "#DA8513",
+    color: "#ffffff",
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 1
+};
+
 function pointToLayerRef(feature,latlng) {
-    //Create points
+    //Create points of the reference layer
     return L.circleMarker(latlng, geojsonMarkerOptionsRef);
 }
 
 function pointToLayerInd(feature,latlng) {
+    //Créate markers of the examples layers
     return L.circleMarker(latlng, {
         radius:4,
         fillColor: getColorVerif(feature.properties.verified),
@@ -61,25 +62,13 @@ function pointToLayerInd(feature,latlng) {
     });
 }
 
-function pointToLayerAdd(feature,latlng) {
-    //Create points
-    return L.circleMarker(latlng, {
-        radius:getRadius(feature.properties.count)*3,
-        fillColor: '#952417',
-        color: "#ffffff",
-        weight: 1,
-        opacity: 1,
-        fillOpacity: 1
-});
-}
-
 /****************
  *** Pop Up *****
  ****************/
 
 
 function onEachFeature(feature, layer) {
-    // Pop-up content for directories data
+    // Pop-up content for directories data in extraction layer
     if (feature.properties.unique_id) {
         texte = '<h4>'+feature.properties.person+'</h4>'+
         '<p><b>Adresse (annuaire)</b> : ' + feature.properties.number + ' '+ feature.properties.street + '<br>'+ 
@@ -111,6 +100,7 @@ function onEachFeature(feature, layer) {
 };
 
 function onEachFeatureInd(feature,layer) {
+    // Pop-up content for directories data in eexemples layers
     if (feature.properties.unique_id) {
         texte = '<h4>'+feature.properties.person+'</h4>'+
         '<p><b>Adresse (annuaire)</b> : ' + feature.properties.number + ' '+ feature.properties.street + '<br>'+ 
@@ -127,14 +117,21 @@ function onEachFeatureInd(feature,layer) {
 
 };
 
-
-function onEachFeatureAdd(feature,layer) {
-    if (feature.properties.count) {
-    texte = '<p><big>' + feature.properties.pelias_name + '</big><br>' +
-    '<small>(Adresse retournée par le géocodeur)</small><br>' +
-    'Nombre de résultats à cette adresse : ' + feature.properties.count + '<p>'}
-    if (feature.properties.count == 1) {
-        texte += '<p><b>Adresse (annuaire) : ' + feature.properties.number + ' ' + feature.properties.street + '</b><p>'
+function keywordAndTimeFilter(feature, layer) {
+    //Filter function by keyword and by time
+    if ((photobox == true) && (daguerbox == true) && (optibox == true)){
+        return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && ((feature.properties.has_photo == 1) || (feature.properties.has_daguer == 1) || (feature.properties.has_opti == 1));
+    } else if ((photobox == true) && (daguerbox == false) && (optibox == false)) {
+        return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && (feature.properties.has_photo == 1);
+    } else if ((photobox == false) && (daguerbox == true) && (optibox == false)) {
+        return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && (feature.properties.has_daguer == 1);
+    } else if ((photobox == false) && (daguerbox == false) && (optibox == true)) {
+        return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && (feature.properties.has_opti == 1);
+    } else if ((photobox == true) && (daguerbox == false) && (optibox == true)) {
+        return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && ((feature.properties.has_photo == 1) || (feature.properties.has_opti == 1));
+    } else if ((photobox == true) && (daguerbox == true) && (optibox == false)) {
+        return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && ((feature.properties.has_photo == 1) || (feature.properties.has_daguer == 1));
+    } else if ((photobox == false) && (daguerbox == true) && (optibox == true)) {
+        return ((feature.properties.year <= rangeMax) && (feature.properties.year >= rangeMin)) && ((feature.properties.has_opti == 1) || (feature.properties.has_daguer == 1));
     }
-    layer.bindPopup(texte)
-};
+}
