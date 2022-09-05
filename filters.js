@@ -198,7 +198,7 @@
          filter:
              function(feature, layer) {
                  return ((feature.properties.date_debut != null && feature.properties.date_fin != null) &&
-                    (feature.properties.date_debut >= rangeMin) && (feature.properties.date_fin <= rangeMax));
+                    (feature.properties.date_debut >= rangeMin && feature.properties.date_fin <= rangeMax));
              },
          pointToLayer: pointToLayerRef
      })
