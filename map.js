@@ -79,7 +79,7 @@ var overLayers = [
         layers:[
             {
                 active: false,
-                name: "Nadar - Tout",
+                name: "Nadar / Tournachon",
                 layer: nadargroup,
                 title: 'nadar'
             }
