@@ -188,6 +188,25 @@
      }
      rangeMin = document.getElementById('input-number-min').value;
      rangeMax = document.getElementById('input-number-max').value;
+
+          //Reference layer update
+     //Clear the layer:
+     refgroup.removeLayer(ref);
+     //Repopulate it with filtered features
+     ref = new L.geoJson(null,{
+         onEachFeature: onEachFeature,
+         filter:
+             function(feature, layer) {
+                 return ((feature.properties.date_debut != null && feature.properties.date_fin != null) &&
+                    (feature.properties.date_debut >= rangeMin) && (feature.properties.date_fin <= rangeMax));
+             },
+         pointToLayer: pointToLayerRef
+     })
+     $.getJSON(url_ref, function(data) {
+         ref.addData(data);
+     });
+     //and back again into the cluster group
+     ref.addTo(refgroup)
  
      //Clear the layer:
      extractgroup.removeLayer(extract);
@@ -219,6 +238,7 @@
      });
      //and back again into the cluster group
      extract.addTo(extractgroup)
+     refgroup.bringToFront()
  });
  
  

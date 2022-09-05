@@ -63,15 +63,15 @@ var overLayers = [
         layers:[
     {
         active: false,
-        name: "Référence",
-        layer: ref,
-        title: 'reference'
-    },
-    {
-        active: false,
         name: "Extraction",
         layer: extractgroup,
         title:'extraction'
+    },
+    {
+        active: false,
+        name: "Référence",
+        layer: refgroup,
+        title: 'reference'
     }
     ]},
     {
@@ -82,13 +82,7 @@ var overLayers = [
                 name: "Nadar - Tout",
                 layer: nadargroup,
                 title: 'nadar'
-            }/*,
-            {
-                active: false,
-                name: "Nadar - Adresses",
-                layer: nadar_add,
-                title: 'nadar_add'
-            },*/
+            }
         ]
     }
 ];

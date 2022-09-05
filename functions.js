@@ -38,7 +38,7 @@ function pointToLayerExtract(feature,latlng) {
 var geojsonMarkerOptionsRef = {
     //Markers of the reference layer
     radius:4,
-    fillColor: "#DA8513",
+    fillColor: " #FFC300",
     color: "#ffffff",
     weight: 1,
     opacity: 1,

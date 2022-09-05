@@ -32,7 +32,8 @@ var ref = L.geoJSON(null,{
 $.getJSON(url_ref, function(data) {
         ref.addData(data);
 });
-
+var refgroup =L.featureGroup();
+ref.addTo(refgroup);
 
 
 
