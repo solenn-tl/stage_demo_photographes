@@ -1,14 +1,14 @@
 /*Functions*/
 
-function getColor(p,o,d) {
+function getColor(p,d,o) {
     //Get color of marker in layer 'extraction' regarding the keywords in the activity field
     var color;
     if ((p == 1 && d == 1 && o == 1) || (p == 1 && d == 0 && o == 1) || (p == 1 && d == 1 && o == 0) || (p == 1 && d == 0 && o == 0)){ //p
         color = '#DC380C'}
     else if ((p == 0 && d == 1 && o == 1) || (p == 0 && d == 1 && o == 0)){ //d
-        color = '#0C71DC'}
-    else if (p == 0 && d == 0 && o == 1){ //o
         color = '#0CDC2F'}
+    else if (p == 0 && d == 0 && o == 1){ //o
+        color = '#0C71DC'}
     return color;
 }
 
