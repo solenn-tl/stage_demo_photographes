@@ -90,4 +90,24 @@
       "map"
       "controls"
   }
+
+  #map { 
+    grid-area: map;
+    width: 100%;
+    height: 450px;
+ }
+  
+  #controls {  
+    margin-left: 10px;
+    margin-right: 10px;
+    grid-area:controls;
+    grid-template-areas:
+      "titrecontrols"
+      "global"
+      "indi";
+    height:350px;
+    overflow-y: scroll;
+    font-family: Arial, sans-serif;
+    font-size: medium;
+  }
 }
