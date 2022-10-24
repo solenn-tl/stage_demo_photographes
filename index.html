@@ -30,95 +30,94 @@
   <body>
     <article>
       <div class="container">
-      <div id="map"></div>
-      <div id="controls">
-        <h2 id="titre-contols">Filtres</h2>
-        <div id="global">
-          <div class="keywords-1">
-            <h3>Echelle globale</h3>
-            <fieldset>
-              <legend>Mots-clés</legend>
-              <div id="checkbox">
-              <div id="photodiv">
-                <input type="checkbox" id="photo" name="photo" checked>
-                <label for="photo">photo</label>
+        <div id="map"></div>
+        <div id="controls">
+          <h2 id="titre-contols">Filtres</h2>
+          <div id="global">
+            <div class="keywords-1">
+              <h3>Echelle globale</h3>
+              <fieldset>
+                <legend>Mots-clés</legend>
+                <div id="checkbox">
+                <div id="photodiv">
+                  <span class="dot" style="background-color:#DC380C"></span><input type="checkbox" id="photo" name="photo" checked>
+                  <label for="photo">photo</label>
+                </div>
+                <div id="daguerdiv">
+                  <span class="dot" style="background-color:#0CDC2F"></span><input type="checkbox" id="daguer" name="daguer" checked>
+                  <label for="daguer">daguer</label>
+                </div>
+                <div id="optidiv">
+                  <span class="dot" style="background-color:#0C71DC"></span><input type="checkbox" id="opti" name="opti" checked>
+                  <label for="opti">opti</label>
+                </div>
               </div>
-              <div id="daguerdiv">
-                <input type="checkbox" id="daguer" name="daguer" checked>
-                <label for="daguer">daguer</label>
-              </div>
-              <div id="optidiv">
-                <input type="checkbox" id="opti" name="opti" checked>
-                <label for="opti">opti</label>
-              </div>
-            </div>
-            <div id="note">
-              <ul>
-                <li><small>Si une entrée contient plusieurs mots-clés, la couleur attribuée correspond à celle du mot-clé le plus pertinent (photo puis daguer puis opti).</small></li>
-                <li><small>Les résultats du géocodage n'ont pas été évalués ici.</small></li>
-                </ul>
-              </div>
-            </fieldset>
-          </div>
-          <!--Time slider - START-->
-          <div class="time">
-            <fieldset>
-              <legend>Période</legend>
-                <div style="margin-right: auto; margin-left: auto; width: 90%; margin-bottom: 10px; text-align: center; height:150px;">
-                <input type="number" min='1790' max='1910' id="input-number-min">
-                <input type="number" min='1790' max='1910' id="input-number-max">
-                <div id="slider" style="top: 0px; right: 1px; margin: 10px 25px;"></div>
+              <div id="note">
+                <ul>
+                  <li><small>Si une entrée contient plusieurs mots-clés, la couleur attribuée correspond à celle du mot-clé le plus pertinent (photo puis daguer puis opti).</small></li>
+                  <li><small>Les résultats du géocodage n'ont pas été évalués ici.</small></li>
+                  </ul>
+                </div>
               </fieldset>
+            </div>
+            <!--Time slider - START-->
+            <div class="time">
+              <fieldset>
+                <legend>Période</legend>
+                  <div style="margin-right: auto; margin-left: auto; width: 90%; margin-bottom: 10px; text-align: center; height:150px;">
+                  <input type="number" min='1790' max='1910' id="input-number-min">
+                  <input type="number" min='1790' max='1910' id="input-number-max">
+                  <div id="slider" style="top: 0px; right: 1px; margin: 10px 25px;"></div>
+                </fieldset>
+            </div>
+            <!--Time slider - END-->
           </div>
-          <!--Time slider - END-->
-        </div>
 
-        <div id="indi">
-           <!--Some informations about data - START -->
-          <div class="keywords">
-            <h3>Suivi par nom</h3>
-            <fieldset>
-              <legend>Photographes</legend>
-              <p>Exemple des entrées correspondants aux photographes de la famille Tournachon (Nadar) : <br>
-              <ul>
-                <li>Félix Tournachon (1820-1910) dit Nadar</li>
-                <li>Adrien Tournachon, frère de Félix (1825-1903) dit Nadar jeune</li>
-                <li>Paul Tournachon, fils de Félix (1856-1939) dit Paul Nadar</li>
-              </ul>
-              </p>
-            </fieldset>
-          </div>
-           <!--Some informations about data - END -->
+          <div id="indi">
+            <!--Some informations about data - START -->
+            <div class="keywords">
+              <h3>Suivi par nom</h3>
+              <fieldset>
+                <legend>Photographes</legend>
+                <p>Exemple des entrées correspondants aux photographes de la famille Tournachon (Nadar) : <br>
+                <ul>
+                  <li>Félix Tournachon (1820-1910) dit Nadar</li>
+                  <li>Adrien Tournachon, frère de Félix (1825-1903) dit Nadar jeune</li>
+                  <li>Paul Tournachon, fils de Félix (1856-1939) dit Paul Nadar</li>
+                </ul>
+                </p>
+              </fieldset>
+            </div>
+            <!--Some informations about data - END -->
 
-          <!--Time slider - START-->
-          <!--Slider have been created with this tutorial :https://digital-geography.com/filter-leaflet-maps-slider/-->
-          <div class="time">
+            <!--Time slider - START-->
+            <!--Slider have been created with this tutorial :https://digital-geography.com/filter-leaflet-maps-slider/-->
             <fieldset>
             <legend>Evaluation du géocodage</legend>
-            <div style="background-color: green;">
-              <p>Correct</p>
+            <p><span class="dot" style="background-color:green"></span>Géocodage correct<br/>
+            <span class="dot" style="background-color: blue;"></span>Géocodage corerct mais imprécis (numéro)<br/>
+            <span class="dot" style="background-color: orange"></span>Résultat ambiguë<br/>
+            <span class="dot" style="background-color: red"></span>Géocodage incorrect</p>
+            <div class="time">
+            </fieldset>
+              <fieldset>
+                <legend>Période</legend>
+                <div style="margin-right: auto; margin-left: auto; width: 90%; margin-bottom: 10px; text-align: center; height:150px;">
+                <input type="number" min='1857' max='1908' id="input-number-min-2">
+                <input type="number" min='1857' max='1908' id="input-number-max-2">
+                <div id="slider2" style="top: 0px; right: 1px; margin: 10px 25px;"></div>
+                </fieldset>
+                <!--Time slider - END-->
             </div>
-            <div style="background-color: red">
-              <p>Incorrect</p>
-            </div>
-          </fieldset>
-            <fieldset>
-              <legend>Période</legend>
-              <div style="margin-right: auto; margin-left: auto; width: 90%; margin-bottom: 10px; text-align: center; height:150px;">
-              <input type="number" min='1857' max='1908' id="input-number-min-2">
-              <input type="number" min='1857' max='1908' id="input-number-max-2">
-              <div id="slider2" style="top: 0px; right: 1px; margin: 10px 25px;"></div>
-              </fieldset>
-              <!--Time slider - END-->
           </div>
         </div>
-      </div>
     </div>
   </div>
     </article>
   </body>
   <script src="tile.js"></script>
   <script src="functions.js"></script>
+  <!--<script src="features-endpoint.js"></script>-->
   <script src="features.js"></script>
   <script src="filters.js"></script>
   <script src="map.js"></script>

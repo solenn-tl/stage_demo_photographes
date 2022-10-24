@@ -19,6 +19,8 @@ function getColorVerif(b) {
         color = '#46d408'
     } else if (b == 'false') {
         color = '#d41d08'
+    } else if (b == 'ambigue') {
+        color = '#ff8000'
     }
     return color;
 }
@@ -26,7 +28,7 @@ function getColorVerif(b) {
 function pointToLayerExtract(feature,latlng) {
     //Create markers of the 'extractions' layer
     return L.circleMarker(latlng, {
-        radius:4,
+        radius:5,
         fillColor: getColor(feature.properties.has_photo,feature.properties.has_daguer,feature.properties.has_opti),
         color: "#ffffff",
         weight: 1,
@@ -53,7 +55,7 @@ function pointToLayerRef(feature,latlng) {
 function pointToLayerInd(feature,latlng) {
     //Créate markers of the examples layers
     return L.circleMarker(latlng, {
-        radius:4,
+        radius:8,
         fillColor: getColorVerif(feature.properties.verified),
         color: "#ffffff",
         weight: 1,

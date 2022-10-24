@@ -75,7 +75,7 @@
         "has_daguer": 0,
         "has_opti": 0,
         "count": 4,
-        "verified": true
+        "verified": "true"
       },
       "geometry": {
         "type": "Point",
@@ -215,7 +215,7 @@
         "has_daguer": 0,
         "has_opti": 0,
         "count": 1,
-        "verified": "true"
+        "verified": "ambigue"
       },
       "geometry": {
         "type": "Point",

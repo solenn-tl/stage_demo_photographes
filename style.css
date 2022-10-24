@@ -57,16 +57,12 @@
   width: fit-content;
 }
 
-#photodiv{
-    background-color: #DC380C;
-}
-
-#daguerdiv{
-    background-color: #0CDC2F;
-}
-
-#optidiv{
-    background-color: #0C71DC;
+.dot {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 20px;
 }
 
 /* Leaflet control panel */
@@ -81,3 +77,5 @@
   color: black;
   font-weight: bold;
 }
+
+
