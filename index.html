@@ -29,38 +29,49 @@
   </head>
   <body>
     <article>
+      <!--START : Container-->
       <div class="container">
+        <!--START : Map-->
         <div id="map"></div>
+        <!--END : Map-->
+        <!--START : Controls-->
         <div id="controls">
+          <!--START : Titres-->
           <h2 id="titre-contols">Filtres</h2>
+          <!--END : Titres-->
+          <!--START : Filtres #1 Globaux-->
           <div id="global">
+            <!--Mots-clés-->
             <div class="keywords-1">
               <h3>Echelle globale</h3>
               <fieldset>
                 <legend>Mots-clés</legend>
+                <!--Checkbox-->
                 <div id="checkbox">
-                <div id="photodiv">
-                  <span class="dot" style="background-color:#DC380C"></span><input type="checkbox" id="photo" name="photo" checked>
-                  <label for="photo">photo</label>
+                  <div id="photodiv">
+                    <span class="dot" style="background-color:#DC380C"></span><input type="checkbox" id="photo" name="photo" checked>
+                    <label for="photo">photo</label>
+                  </div>
+                  <div id="daguerdiv">
+                    <span class="dot" style="background-color:#0CDC2F"></span><input type="checkbox" id="daguer" name="daguer" checked>
+                    <label for="daguer">daguer</label>
+                  </div>
+                  <div id="optidiv">
+                    <span class="dot" style="background-color:#0C71DC"></span><input type="checkbox" id="opti" name="opti" checked>
+                    <label for="opti">opti</label>
+                  </div>
                 </div>
-                <div id="daguerdiv">
-                  <span class="dot" style="background-color:#0CDC2F"></span><input type="checkbox" id="daguer" name="daguer" checked>
-                  <label for="daguer">daguer</label>
-                </div>
-                <div id="optidiv">
-                  <span class="dot" style="background-color:#0C71DC"></span><input type="checkbox" id="opti" name="opti" checked>
-                  <label for="opti">opti</label>
-                </div>
-              </div>
-              <div id="note">
-                <ul>
-                  <li><small>Si une entrée contient plusieurs mots-clés, la couleur attribuée correspond à celle du mot-clé le plus pertinent (photo puis daguer puis opti).</small></li>
-                  <li><small>Les résultats du géocodage n'ont pas été évalués ici.</small></li>
+                <!--Note-->
+                <div id="note">
+                  <ul>
+                    <li><small>Si une entrée contient plusieurs mots-clés, la couleur attribuée correspond à celle du mot-clé le plus pertinent (photo puis daguer puis opti).</small></li>
+                    <li><small>Les résultats du géocodage n'ont pas été évalués ici.</small></li>
                   </ul>
                 </div>
               </fieldset>
             </div>
-            <!--Time slider - START-->
+            <!-- END : Mots-clés-->
+            <!--START : Time slider-->
             <div class="time">
               <fieldset>
                 <legend>Période</legend>
@@ -68,10 +79,11 @@
                   <input type="number" min='1790' max='1910' id="input-number-min">
                   <input type="number" min='1790' max='1910' id="input-number-max">
                   <div id="slider" style="top: 0px; right: 1px; margin: 10px 25px;"></div>
-                </fieldset>
+              </fieldset>
             </div>
             <!--Time slider - END-->
           </div>
+          <!--END : Filtres #1 Globaux-->
 
           <div id="indi">
             <!--Some informations about data - START -->

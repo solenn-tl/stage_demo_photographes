@@ -79,3 +79,15 @@
 }
 
 
+@media all and (max-width: 1024px)
+{
+  .container {  
+    display: grid; 
+    grid-template-columns: 1fr; 
+    grid-template-rows: 1fr 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "map"
+      "controls"
+  }
+}
