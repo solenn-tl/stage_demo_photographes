@@ -27,7 +27,8 @@
     grid-template-areas:
       "titrecontrols"
       "global"
-      "indi";
+      "indi"
+      "av";
     height:100vh;
     overflow-y: scroll;
     font-family: Arial, sans-serif;
@@ -45,42 +46,44 @@
     grid-area: global;
   }
 
-#num-features{}
-
   #indi {
     grid-template-areas:
       "keywords"
       "time";
     grid-area: indi;
   }
-  
-  .keyword-1 { grid-area: keywords-1; }
-  
-  .time { grid-area: time; }
 
+  #av {
+    grid-template-areas:
+      "searchtool"
+      "time";
+    grid-area: indi;
+  }
+  
+  .keyword-1 { 
+    grid-area: keywords-1; 
+  }
+  
+  .time { 
+    grid-area: time; 
+  }
+
+  .logo{
+    height: 50px;
+  }
+
+/*Checkbox style*/
 #checkbox{
   width: fit-content;
 }
 
+/*Dot used in the legend*/
 .dot {
   height: 15px;
   width: 15px;
   border-radius: 50%;
   display: inline-block;
   margin-right: 20px;
-}
-
-/* Leaflet control panel */
-
-.leaflet-panel-layers {
-  padding: 4px;
-  background: rgba(255,255,255,0.8);
-  box-shadow: -2px 0 8px rgb(0 0 0 / 30%);
-}
-
-#panel{
-  color: black;
-  font-weight: bold;
 }
 
 
@@ -156,3 +159,20 @@
 }
 
 
+
+
+/* UNUSED Leaflet control panel */
+
+.leaflet-panel-layers {
+  padding: 4px;
+  background: rgba(255,255,255,0.8);
+  box-shadow: -2px 0 8px rgb(0 0 0 / 30%);
+}
+
+
+#panel{
+  color: black;
+  font-weight: bold;
+}
+
+/****************************/

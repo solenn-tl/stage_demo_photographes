@@ -44,3 +44,14 @@ var overLayers = {
 }
 
 var layerControl = L.control.layers(baseLayers, overLayers).addTo(map);
+
+/* Logo */
+
+//logo position: bottomright, topright, topleft, bottomleft
+var logo = L.control({position: 'bottomleft'});
+logo.onAdd = function(map){
+    var div = L.DomUtil.create('div', 'logo');
+    div.innerHTML= "<img class='logo' src='data/soduco_logo.png'/>";
+    return div;
+}
+logo.addTo(map);
