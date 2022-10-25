@@ -6,7 +6,8 @@ var map = L.map('map',{
     fullscreenControl: true,
     fullscreenControlOptions: {
         position: 'topleft'
-    }
+    },
+    layers:[wmsAndriveau]
 }).setView([48.859972,2.347984],13);
 
 /**************************************
@@ -29,64 +30,17 @@ map.addControl(controlSearch);
  *********** Layer control ************
  *************************************/
 
-var baseLayers = [{
-    group:'Cartes et plans',
-    collapsed: false,
-    layers: [
-        {
-            active: false,
-            name: "Jacoubet (1836)",
-            layer: wmsJacoubet
-        },
-        {
-            active: true,
-            name: "Andriveau (1849)",
-            layer: wmsAndriveau
-        },
-        {
-            active: false,
-            name: "Atlas municipal (1888)",
-            layer: wmsbhdv
-        },
-        {
-            active:false,
-            name:"Plan IGN (2022)",
-            layer:GeoportailFrance_plan
-        }
-    ]
+var baseLayers = {
+    "Jacoubet (1836)":wmsJacoubet,
+    "Andriveau (1849)":wmsAndriveau,
+    "Atlas municipal (1888)":wmsbhdv,
+    "Plan IGN (2022)":GeoportailFrance_plan
 }
-];
 
-var overLayers = [
-    {
-        group:'Echelle globale',
-        layers:[
-    {
-        active: false,
-        name: "Extraction",
-        layer: extractgroup,
-        title:'extraction'
-    },
-    {
-        active: false,
-        name: "Référence",
-        layer: refgroup,
-        title: 'reference'
-    }
-    ]},
-    {
-        group:'Suivi par nom',
-        layers:[
-            {
-                active: false,
-                name: "Nadar / Tournachon",
-                layer: nadargroup,
-                title: 'nadar'
-            }
-        ]
-    }
-];
+var overLayers = {
+    "Extraction globale":extractgroup,
+    "Référence":refgroup,
+    "Ex. individuel":nadargroup
+}
 
-//Add layers control and change control title
-map.addControl(new L.Control.PanelLayers(baseLayers, overLayers,
-    {title:'<h5 id="panel">Photographes</h5>'}));
+var layerControl = L.control.layers(baseLayers, overLayers).addTo(map);
