@@ -14,17 +14,25 @@ var query = "PREFIX adb: <http://data.soduco.fr/def/annuaire#>"+
 "adb:directoryDate ?directoryDate .}"
 
 //On encode la requête pour l'envoyer par HTTP				
-var queryURL = "http://localhost:7200/repositories/photographes-inf?query="+encodeURIComponent(query);
+var queryURL = "http://localhost:7200/repositories/photographes-inf?query="+encodeURIComponent(query)+"&?application/json";
 
+var myVar;
 var json = $.ajax({
     url: queryURL,
     Accept: "application/sparql-results+json",
-    contentType:"application/json",
-    //dataType:"json",
-    success: function (data) {
-        alert(data);
-    }
+    contentType:"application/sparql-results+json",
+    dataType:"json",
+    data:'',
+    success: function(data) {
+        myVar = data.results.bindings; //Retourne un Array avec les différents objets RDF et leurs propriétés
+        console.log(myVar)
+       },
+     error: function(data){
+        alert(data.error);
+     }
 });//end of placelist ajax  
 
-console.log(queryURL);
-console.log(json);
+console.log(myVar);
+console.dir(json)
+
+//Create clean json

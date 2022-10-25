@@ -36,11 +36,14 @@
         <!--END : Map-->
         <!--START : Controls-->
         <div id="controls">
-          <!--START : Titres-->
-          <h2 id="titre-contols">Filtres</h2>
-          <!--END : Titres-->
-          <!--START : Filtres #1 Globaux-->
-          <div id="global">
+          <!--Tabs links-->
+          <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'global')" id="defaultOpen">Visualisation globale</button>
+            <button class="tablinks" onclick="openTab(event, 'indi')">Visualisation avancée</button>
+          </div>
+          
+          <!-- Tab content -->
+          <div id="global" class="tabcontent">
             <!--Mots-clés-->
             <div class="keywords-1">
               <h3>Echelle globale</h3>
@@ -83,9 +86,8 @@
             </div>
             <!--Time slider - END-->
           </div>
-          <!--END : Filtres #1 Globaux-->
 
-          <div id="indi">
+          <div id="indi" class="tabcontent">
             <!--Some informations about data - START -->
             <div class="keywords">
               <h3>Suivi par nom</h3>
@@ -127,6 +129,7 @@
   </div>
     </article>
   </body>
+  <script src="tabbers.js"></script>
   <script src="tile.js"></script>
   <script src="functions.js"></script>
   <script src="features-endpoint.js"></script>
