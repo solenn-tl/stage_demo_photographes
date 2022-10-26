@@ -4,6 +4,7 @@
 
 //////// Global
 
+
 var url_extract = "./data/par_activite_geocoded_unique.geojson"
 
 //Extracted data - Init

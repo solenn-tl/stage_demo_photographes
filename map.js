@@ -51,7 +51,7 @@ var layerControl = L.control.layers(baseLayers, overLayers).addTo(map);
 var logo = L.control({position: 'bottomleft'});
 logo.onAdd = function(map){
     var div = L.DomUtil.create('div', 'logo');
-    div.innerHTML= "<img class='logo' src='data/soduco_logo.png'/>";
+    div.innerHTML= "<a href='https://soduco.github.io'><img class='logo' src='data/soduco_logo.png'/></a>";
     return div;
 }
 logo.addTo(map);

@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./libs/jquery-3.6.1.min.js"></script>
+    <script src="./libs/jquery.geo.min.js"></script>
     <!--Slider-->
     <script src="./libs/wnumb-1.2.0/wNumb.min.js"></script>
     <link rel="stylesheet" href="./libs/noUiSlider/nouislider.min.css" />
@@ -43,7 +44,6 @@
           <div class="tab">
             <button class="tablinks" onclick="openTab(event, 'global')" id="defaultOpen">Globale</button>
             <button class="tablinks" onclick="openTab(event, 'indi')">Individuelle</button>
-            <!--<button class="tablinks" onclick="openTab(event, 'av')">Avancée</button>-->
           </div>
           
           <!-- Tab content -->
@@ -90,9 +90,11 @@
             </div>
             <!--Time slider - END-->
           </div>
+          <!--END : Global panel-->
 
+          <!-- START : Individual panel-->
           <div id="indi" class="tabcontent">
-            <!--Some informations about data - START -->
+            <!-- 1# START : Some informations about data -->
             <div class="keywords">
               <h3>Suivi par nom</h3>
               <fieldset>
@@ -105,17 +107,18 @@
                 </ul>
                 </p>
               </fieldset>
-            </div>
-            <!--Some informations about data - END -->
 
-            <!--Time slider - START-->
-            <!--Slider have been created with this tutorial :https://digital-geography.com/filter-leaflet-maps-slider/-->
+            <!-- Slider have been created with this tutorial : https://digital-geography.com/filter-leaflet-maps-slider/-->
             <fieldset>
             <legend>Evaluation du géocodage</legend>
             <p><span class="dot" style="background-color:green"></span>Géocodage correct<br/>
             <!--<span class="dot" style="background-color: blue;"></span>Géocodage correct mais imprécis (numéro manquant)<br/>-->
             <span class="dot" style="background-color: orange"></span>Résultat ambiguë<br/>
             <span class="dot" style="background-color: red"></span>Géocodage incorrect</p>
+            </div>
+            <!-- 1# END : Some informations about data -->
+
+            <!--  2# START : Time slider div -->
             <div class="time">
             </fieldset>
               <fieldset>
@@ -125,11 +128,11 @@
                 <input type="number" min='1857' max='1908' id="input-number-max-2">
                 <div id="slider2" style="top: 0px; right: 1px; margin: 10px 25px;"></div>
                 </fieldset>
-                <!--Time slider - END-->
             </div>
+            <!--END : Time slider div -->
           </div>
           <!--END : Indi tabber-->
-        </div>
+
     </div>
   </div>
     </article>
@@ -137,7 +140,6 @@
   <script src="tabbers.js"></script>
   <script src="tile.js"></script>
   <script src="functions.js"></script>
-  <script src="features-endpoint.js"></script>
   <script src="features.js"></script>
   <script src="filters.js"></script>
   <script src="map.js"></script>
